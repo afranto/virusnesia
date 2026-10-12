@@ -463,14 +463,108 @@
     </section>
 
     <section class="page" id="page-evaluate" data-phase="evaluate" aria-labelledby="evaluate-title" hidden>
-      <div class="phase-banner phase-banner--evaluate"><span class="phase-tag">FASE 5 • EVALUATE</span><h1 id="evaluate-title">Uji pemahamanmu</h1><p>Evaluasi digunakan untuk memeriksa pemahaman setelah mempelajari materi.</p></div>
-      <article class="card"><h2>Siap untuk evaluasi?</h2><p>Kuis tentang urutan, ciri, dan peran tahapan replikasi akan ditambahkan pada pengembangan berikutnya.</p><button class="button button--primary" data-complete="evaluate">Tandai fase ini selesai</button></article>
+      <div class="phase-banner phase-banner--evaluate">
+        <span class="phase-tag">FASE 5 • EVALUATE</span>
+        <h1 id="evaluate-title">Uji pemahamanmu</h1>
+        <p>Jawab lima soal pilihan ganda tentang struktur virus dan tahapan replikasi. Setiap jawaban akan mendapat umpan balik agar kamu tahu alasannya.</p>
+      </div>
+
+      <article class="card quiz-card" aria-labelledby="quiz-heading">
+        <div class="quiz-heading-row">
+          <div>
+            <span class="content-kicker content-kicker--evaluate">KUIS FORMATIF</span>
+            <h2 id="quiz-heading">Misi pengetahuan virus</h2>
+          </div>
+          <span class="quiz-total-badge">5 soal</span>
+        </div>
+
+        <div id="quiz-play-panel">
+          <div class="quiz-progress-meta"><span id="quiz-question-count">SOAL 1 DARI 5</span><span id="quiz-answered-count">0/5 dijawab</span></div>
+          <div class="quiz-progress-track"><span id="quiz-progress-fill"></span></div>
+          <div class="quiz-question-card">
+            <span class="quiz-question-number" id="quiz-question-number">PERTANYAAN 01</span>
+            <h3 id="quiz-question-text">Memuat pertanyaan…</h3>
+            <div class="quiz-options" id="quiz-options" role="group" aria-label="Pilihan jawaban"></div>
+            <div class="quiz-feedback" id="quiz-feedback" aria-live="polite" hidden></div>
+          </div>
+          <div class="quiz-controls">
+            <button class="button button--quiz-outline" id="quiz-previous" type="button" disabled><span aria-hidden="true">←</span> Sebelumnya</button>
+            <button class="button button--quiz-primary" id="quiz-next" type="button" disabled>Selanjutnya <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="quiz-note">Pilih satu jawaban. Jika pilihanmu belum tepat, baca umpan baliknya, lalu lanjutkan ke soal berikutnya.</p>
+        </div>
+
+        <div id="quiz-result-panel" class="quiz-result-panel" hidden>
+          <div class="score-medallion" aria-hidden="true"><span>★</span></div>
+          <span class="content-kicker content-kicker--evaluate">HASIL KUIS FORMATIF</span>
+          <h3 id="quiz-result-title">Kuis selesai!</h3>
+          <div class="final-score"><strong id="quiz-final-score">0</strong><span>/ 100</span></div>
+          <p id="quiz-result-summary">Kamu telah menyelesaikan kuis.</p>
+          <div class="score-detail"><strong id="quiz-correct-count">0 dari 5 benar</strong><span>Skor dihitung dari jawaban yang benar.</span></div>
+          <div id="quiz-review" class="quiz-review" aria-label="Ringkasan hasil setiap soal"></div>
+          <div class="quiz-result-actions">
+            <button class="button button--quiz-outline" id="quiz-retry" type="button">↻ Ulangi Kuis</button>
+            <button class="button button--quiz-primary" id="quiz-to-reflection" type="button">Lanjut ke Refleksi <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section class="page" id="page-reflection" data-phase="reflection" aria-labelledby="reflection-title" hidden>
-      <div class="phase-banner phase-banner--reflection"><span class="phase-tag">REFLEKSI</span><h1 id="reflection-title">Apa yang kamu pelajari?</h1><p>Refleksikan perubahan pemahamanmu selama mengikuti petualangan ini.</p></div>
-      <article class="card"><h2>Refleksi belajar</h2><label class="field-label" for="reflection-answer">Satu hal yang paling saya pahami adalah…</label><textarea id="reflection-answer" rows="4" placeholder="Tuliskan refleksimu..."></textarea><button class="button button--primary" id="save-reflection">Simpan refleksi</button><p class="inline-feedback" id="reflection-feedback" aria-live="polite"></p></article>
+    <section class="page" id="refleksi" data-phase="reflection" aria-labelledby="reflection-title" hidden>
+      <div class="phase-banner phase-banner--reflection">
+        <span class="phase-tag">MINDFUL CLOSING • REFLEKSI</span>
+        <h1 id="reflection-title">Berhenti sejenak, lihat sejauh apa kamu melangkah</h1>
+        <p>Belajar bukan hanya tentang jawaban yang benar, tetapi juga tentang menyadari apa yang berubah dalam pemahamanmu dan pertanyaan apa yang masih ingin kamu jelajahi.</p>
+      </div>
+
+      <article class="card badge-card">
+        <div class="badge-glow" aria-hidden="true"></div>
+        <div class="digital-badge" aria-label="Lencana digital Penjelajah Virus">
+          <div class="badge-ribbon">VIRUSNESIA</div>
+          <div class="badge-orbit badge-orbit--outer"></div>
+          <div class="badge-orbit badge-orbit--inner"></div>
+          <div class="badge-symbol" aria-hidden="true">✦</div>
+          <div class="badge-stars" aria-hidden="true">✧　•　✧</div>
+          <div class="badge-label">PENJELAJAH<br>VIRUS</div>
+        </div>
+        <div class="badge-message">
+          <span class="badge-kicker">MISI SELESAI!</span>
+          <h2>Selamat, Penjelajah Virus! 🎉</h2>
+          <p>Kamu telah meluangkan waktu untuk mengamati, mempertanyakan, dan memahami dunia virus. Teruslah penasaran, berpikir kritis, dan belajar dengan hati terbuka—setiap pertanyaan adalah awal penemuan baru.</p>
+        </div>
+      </article>
+
+      <article class="card journal-card">
+        <div class="journal-heading">
+          <span class="journal-icon" aria-hidden="true">✎</span>
+          <div><span class="content-kicker content-kicker--reflection">JURNAL REFLEKSI</span><h2>Catat perjalanan belajarmu</h2></div>
+        </div>
+        <p class="journal-intro">Tidak ada jawaban yang harus sempurna. Tuliskan pemikiranmu dengan jujur. Jurnal akan tersimpan otomatis di perangkat ini.</p>
+
+        <div class="journal-entry">
+          <label for="reflection-learned"><span>01</span>Apa yang baru saya pelajari?</label>
+          <textarea id="reflection-learned" rows="3" placeholder="Hal baru yang saya pahami hari ini adalah…"></textarea>
+        </div>
+        <div class="journal-entry">
+          <label for="reflection-misconception"><span>02</span>Miskonsepsi apa yang berhasil saya perbaiki?</label>
+          <textarea id="reflection-misconception" rows="3" placeholder="Sebelumnya saya mengira…, sekarang saya memahami bahwa…"></textarea>
+        </div>
+        <div class="journal-entry">
+          <label for="reflection-curious"><span>03</span>Apa yang ingin saya ketahui lebih lanjut?</label>
+          <textarea id="reflection-curious" rows="3" placeholder="Pertanyaan yang masih ingin saya cari jawabannya…"></textarea>
+        </div>
+        <div class="journal-save-status" id="reflection-save-status" role="status" aria-live="polite">Jurnal siap ditulis.</div>
+        <button class="button button--reflection" id="reflection-save-all" type="button">Simpan Jurnal Refleksi <span aria-hidden="true">✓</span></button>
+      </article>
+
+      <article class="card reflection-closing-card">
+        <span aria-hidden="true" class="closing-sparkle">✦</span>
+        <h2>Rasa ingin tahu adalah bekal terbaikmu.</h2>
+        <p>Bawa pemahaman ini ke kehidupan sehari-hari. Tetap teliti saat membaca informasi kesehatan, dan jangan berhenti bertanya.</p>
+        <button class="button button--reflection-ghost" type="button" data-go="home">Kembali ke Beranda <span aria-hidden="true">⌂</span></button>
+      </article>
     </section>
+
   </main>
 
   <nav class="bottom-nav" aria-label="Navigasi fase pembelajaran">
@@ -482,6 +576,7 @@
     <button class="nav-item" data-go="evaluate"><span>✓</span><small>Evaluate</small></button>
     <button class="nav-item" data-go="reflection"><span>♡</span><small>Refleksi</small></button>
   </nav>
+  <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
