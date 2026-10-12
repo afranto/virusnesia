@@ -308,3 +308,73 @@ textarea { display:block; width:100%; min-height:110px; resize:vertical; padding
  .comparison-table { font-size:13px; }
  .comparison-table th,.comparison-table td { padding:14px; }
 }
+
+
+/* FASE ELABORATE — horizontal case studies and application response */
+.phase-banner--elaborate {
+  background:linear-gradient(140deg,#27AE60,#16864a);
+  box-shadow:0 9px 24px rgba(39,174,96,.17);
+}
+.content-kicker--elaborate { color:#16864a; }
+.case-study-section { margin-top:18px; }
+.case-section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin:0 2px 12px; }
+.case-section-heading h2 { margin:7px 0 4px; font-size:21px; }
+.case-section-heading p { margin:0; color:var(--muted); font-size:13px; }
+.swipe-hint { flex:none; padding:6px 9px; margin-bottom:2px; border-radius:999px; color:#176c40; background:#e3f8eb; font-size:11px; font-weight:800; }
+.case-carousel { display:flex; align-items:stretch; gap:13px; width:100%; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding:3px; padding:3px 3px 14px; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:#8cd7a8 #eaf5ee; }
+.case-card { flex:0 0 min(86%,330px); min-width:0; display:flex; flex-direction:column; overflow:hidden; scroll-snap-align:start; border:1px solid #dfeee4; border-radius:18px; background:#fff; box-shadow:0 7px 20px rgba(24,75,45,.07); }
+.case-card__visual { position:relative; display:grid; place-items:center; height:155px; overflow:hidden; }
+.case-card--covid .case-card__visual { background:radial-gradient(circle at center,#e4f8eb,#bfeacd); }
+.case-card--dengue .case-card__visual { background:radial-gradient(circle at center,#fff3dd,#f4d49d); }
+.case-card--hiv .case-card__visual { background:radial-gradient(circle at center,#f4e9ff,#ded0fa); }
+.case-card__body { padding:18px 17px 19px; }
+.case-number { display:inline-block; font-size:10px; color:#21864c; font-weight:900; letter-spacing:.12em; }
+.case-card h3 { margin:5px 0 8px; font-size:22px; line-height:1.2; }
+.case-focus { display:inline-block; padding:5px 8px; border-radius:8px; color:#176e3b; background:#eaf8ee; font-size:11px; font-weight:800; }
+.case-card--dengue .case-number { color:#a9600b; }.case-card--dengue .case-focus { color:#99520c; background:#fff1db; }
+.case-card--hiv .case-number { color:#7440aa; }.case-card--hiv .case-focus { color:#693a9b; background:#f2eaff; }
+.case-card__body > p { margin:13px 0; color:#586475; font-size:13px; line-height:1.7; }
+.case-takeaway { display:flex; flex-direction:column; gap:5px; margin-top:auto; padding:12px; border-left:3px solid #27AE60; border-radius:0 10px 10px 0; background:#f0faf3; }
+.case-takeaway strong { color:#176f3d; font-size:12px; }
+.case-takeaway span { color:#4f6356; font-size:12px; line-height:1.55; }
+.case-card--dengue .case-takeaway { border-color:#E67E22; background:#fff8ee; }.case-card--dengue .case-takeaway strong { color:#99520c; }
+.case-card--hiv .case-takeaway { border-color:#8E44AD; background:#faf5ff; }.case-card--hiv .case-takeaway strong { color:#693a9b; }
+.carousel-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 5px; color:var(--muted); font-size:12px; }
+.carousel-dots { display:flex; align-items:center; gap:8px; }
+.carousel-dot { width:9px; height:9px; padding:0; border:0; border-radius:50%; background:#cbd5ce; }
+.carousel-dot.is-active { width:23px; border-radius:999px; background:#27AE60; }
+.case-virus-ring { position:absolute; width:88px; height:88px; border-radius:50%; border:3px solid #399a5b; background:radial-gradient(circle at 30% 28%,#bff1cd,#54b978); box-shadow:inset 0 0 0 8px rgba(255,255,255,.38),0 6px 16px rgba(25,109,58,.16); }
+.case-virus-core { position:absolute; z-index:1; width:47px; height:38px; border:3px solid #246f46; border-radius:48% 55% 42% 55%; transform:rotate(32deg); }
+.case-virus-core::after { content:""; position:absolute; inset:5px; border:2px dashed #246f46; border-radius:45%; }
+.case-virus-spike { position:absolute; z-index:2; width:8px; height:26px; border:2px solid #d5f8df; border-radius:7px; background:#248a4c; transform-origin:50% 100%; }
+.case-virus-spike--1 { transform:translateY(-52px) rotate(0deg); }.case-virus-spike--2 { transform:translate(36px,-39px) rotate(42deg); }.case-virus-spike--3 { transform:translate(52px,0) rotate(90deg); }.case-virus-spike--4 { transform:translate(36px,39px) rotate(138deg); }.case-virus-spike--5 { transform:translateY(52px) rotate(180deg); }.case-virus-spike--6 { transform:translate(-38px,22px) rotate(225deg); }
+.mosquito-body { position:absolute; width:11px; height:84px; border-radius:999px; background:#63533d; transform:rotate(35deg); box-shadow:inset 3px 0 0 rgba(255,255,255,.2); }
+.mosquito-body::before { content:""; position:absolute; top:-6px; left:-3px; width:17px; height:17px; border-radius:50%; background:#80694c; }
+.mosquito-proboscis { position:absolute; width:3px; height:38px; margin-top:-113px; margin-left:38px; border-radius:3px; background:#63533d; transform:rotate(35deg); }
+.mosquito-wing { position:absolute; width:37px; height:70px; border:2px solid rgba(115,121,94,.75); border-radius:70% 20% 70% 20%; background:rgba(255,255,255,.55); }
+.mosquito-wing--1 { margin-left:-19px; margin-top:-24px; transform:rotate(-35deg); }.mosquito-wing--2 { margin-left:21px; margin-top:-19px; transform:rotate(142deg); }
+.mosquito-leg { position:absolute; width:3px; height:63px; border-radius:4px; background:#63533d; transform-origin:top; }
+.mosquito-leg--1 { margin-left:-9px; margin-top:12px; transform:rotate(-48deg); }.mosquito-leg--2 { margin-left:7px; margin-top:12px; transform:rotate(55deg); }.mosquito-leg--3 { margin-left:-3px; margin-top:30px; transform:rotate(175deg); }
+.immune-cell { position:absolute; display:block; border-radius:50%; }
+.immune-cell--outer { width:105px; height:105px; border:5px solid #9973ce; background:radial-gradient(circle at 35% 30%,#f1e6ff,#bca1e8); box-shadow:inset 0 0 0 7px rgba(255,255,255,.35); }
+.immune-cell--inner { width:36px; height:36px; margin-left:9px; margin-top:-3px; background:#8e72bc; box-shadow:inset 0 0 0 5px rgba(255,255,255,.25); }
+.immune-receptor { position:absolute; width:8px; height:20px; border-radius:5px; background:#7444a8; border:2px solid #efe5ff; }
+.immune-receptor--1 { margin-left:47px; margin-top:-49px; transform:rotate(25deg); }.immune-receptor--2 { margin-left:54px; margin-top:43px; transform:rotate(-25deg); }
+.immune-virus { position:absolute; width:33px; height:33px; margin-left:100px; margin-top:-44px; border:3px solid #be637f; border-radius:50%; background:#d98ca5; box-shadow:inset 0 0 0 5px rgba(255,255,255,.35); }
+.immune-virus::before,.immune-virus::after { content:""; position:absolute; border:2px dotted #a54867; border-radius:50%; inset:-7px; }.immune-virus::after { inset:8px; border-style:solid; }
+.application-card { margin-top:20px; border-top:4px solid #27AE60; }
+.application-heading { display:flex; align-items:center; gap:12px; }
+.application-icon { display:grid; place-items:center; flex:0 0 42px; width:42px; height:42px; border-radius:13px; color:#fff; background:#27AE60; font-size:22px; }
+.application-heading h2 { margin:5px 0 0; font-size:19px; }
+.application-question { margin:17px 0 8px; padding:14px; border:1px solid #cfead8; border-radius:13px; background:#f1fbf4; color:#1f5133; font-size:16px; font-weight:760; line-height:1.55; }
+.application-hint { margin:0; color:var(--muted); font-size:13px; line-height:1.65; }
+#elaborate-answer { margin-top:7px; min-height:130px; }
+.answer-save-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-top:7px; color:var(--muted); font-size:11px; }
+.button--elaborate { margin-top:16px; color:#fff; background:#27AE60; box-shadow:0 4px 0 #16864a; }
+.button--elaborate:disabled { color:#8991a0; background:#e7e9ef; box-shadow:none; cursor:not-allowed; }
+@media (min-width:560px) {
+ .case-card { flex-basis:320px; }
+ .case-card__visual { height:170px; }
+ .case-section-heading h2 { font-size:23px; }
+ .application-card { padding:24px; }
+}
