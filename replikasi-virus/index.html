@@ -222,9 +222,154 @@
       </div>
     </section>
 
-    <section class="page" id="page-explain" data-phase="explain" aria-labelledby="explain-title" hidden>
-      <div class="phase-banner phase-banner--explain"><span class="phase-tag">FASE 3 • EXPLAIN</span><h1 id="explain-title">Bangun pemahaman</h1><p>Di fase ini kamu akan mempelajari konsep ilmiah yang menjelaskan bagaimana virus bereplikasi.</p></div>
-      <article class="card"><h2>Apa yang perlu dipahami?</h2><p>Replikasi virus adalah proses pembentukan virus baru dengan memanfaatkan struktur dan mekanisme sel inang. Rincian materi dan media interaktif akan ditambahkan secara bertahap.</p><button class="button button--primary" data-complete="explain">Tandai fase ini selesai</button></article>
+    <section class="page" id="explain" data-phase="explain" aria-labelledby="explain-title" hidden>
+      <div class="phase-banner phase-banner--explain">
+        <span class="phase-tag">FASE 3 • EXPLAIN</span>
+        <h1 id="explain-title">Mari luruskan pemahaman</h1>
+        <p>Pilihan awalmu adalah titik berangkat belajar, bukan ujian. Sekarang kita bandingkan dengan penjelasan ilmiah agar konsep tentang virus semakin jelas.</p>
+      </div>
+
+      <article class="card explain-intro-card">
+        <span class="explain-intro-icon" aria-hidden="true">✦</span>
+        <div>
+          <h2>Meninjau kembali Self-Check</h2>
+          <p>Jawabanmu dari fase Engage ditampilkan di sebelah fakta ilmiah. Tidak ada nilai yang diberikan di sini—tujuannya adalah membangun pemahaman yang lebih tepat.</p>
+        </div>
+      </article>
+
+      <div class="explain-check-list" aria-label="Perbandingan jawaban awal dan fakta ilmiah">
+        <article class="card explain-check-card" data-explain-question="q1">
+          <div class="explain-check-card__heading"><span>PERNYATAAN 01</span><span class="fact-badge">FAKTA ILMIAH</span></div>
+          <h2>“Virus adalah makhluk hidup bersel tunggal.”</h2>
+          <div class="answer-fact-grid">
+            <div class="student-answer">
+              <span class="small-label">Jawaban awalmu</span>
+              <strong id="explain-answer-q1">Belum dijawab</strong>
+            </div>
+            <div class="scientific-fact">
+              <span class="small-label">Penjelasan ilmiah</span>
+              <p>Virus bersifat aseluler, artinya tidak tersusun atas sel. Virus tidak memiliki perangkat metabolisme dan sistem sel lengkap seperti organisme bersel. Karena tidak dapat bereplikasi secara mandiri, virus umumnya tidak diklasifikasikan sebagai makhluk hidup.</p>
+            </div>
+          </div>
+          <p class="empathetic-note" id="explain-note-q1">Kita cek bersama konsepnya.</p>
+        </article>
+
+        <article class="card explain-check-card" data-explain-question="q2">
+          <div class="explain-check-card__heading"><span>PERNYATAAN 02</span><span class="fact-badge">FAKTA ILMIAH</span></div>
+          <h2>“Virus sama dengan bakteri, hanya ukurannya lebih kecil.”</h2>
+          <div class="answer-fact-grid">
+            <div class="student-answer">
+              <span class="small-label">Jawaban awalmu</span>
+              <strong id="explain-answer-q2">Belum dijawab</strong>
+            </div>
+            <div class="scientific-fact">
+              <span class="small-label">Penjelasan ilmiah</span>
+              <p>Virus dan bakteri berbeda secara mendasar. Bakteri adalah organisme bersel prokariotik yang memiliki membran sel, sitoplasma, ribosom, dan materi genetik. Virus berupa partikel aseluler dengan materi genetik yang dibungkus protein, dan sebagian memiliki envelope.</p>
+            </div>
+          </div>
+          <p class="empathetic-note" id="explain-note-q2">Kita cek bersama konsepnya.</p>
+        </article>
+
+        <article class="card explain-check-card" data-explain-question="q3">
+          <div class="explain-check-card__heading"><span>PERNYATAAN 03</span><span class="fact-badge">FAKTA ILMIAH</span></div>
+          <h2>“Virus dapat berkembang biak sendiri tanpa menempel pada makhluk hidup lain.”</h2>
+          <div class="answer-fact-grid">
+            <div class="student-answer">
+              <span class="small-label">Jawaban awalmu</span>
+              <strong id="explain-answer-q3">Belum dijawab</strong>
+            </div>
+            <div class="scientific-fact">
+              <span class="small-label">Penjelasan ilmiah</span>
+              <p>Virus memerlukan sel inang yang sesuai untuk menghasilkan partikel virus baru. Virus memanfaatkan mesin dan bahan dari sel inang untuk membuat komponen-komponennya; menempel pada permukaan saja tidak cukup untuk bereplikasi.</p>
+            </div>
+          </div>
+          <p class="empathetic-note" id="explain-note-q3">Kita cek bersama konsepnya.</p>
+        </article>
+      </div>
+
+      <article class="card comparison-card">
+        <div class="content-kicker content-kicker--explain">MEMBANDINGKAN KONSEP</div>
+        <h2>Virus, bakteri, dan sel eukariotik</h2>
+        <p>Gunakan tabel ini untuk melihat perbedaan struktur, cara hidup, dan reproduksi. Geser tabel ke samping pada layar kecil.</p>
+        <div class="responsive-table-wrap" role="region" aria-label="Tabel perbandingan virus, bakteri, dan sel eukariotik" tabindex="0">
+          <table class="comparison-table">
+            <thead>
+              <tr><th scope="col">Aspek</th><th scope="col">Virus</th><th scope="col">Bakteri</th><th scope="col">Sel eukariotik</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Struktur</th>
+                <td>Aseluler; materi genetik DNA atau RNA dalam selubung protein. Sebagian memiliki envelope.</td>
+                <td>Sel prokariotik; memiliki membran sel, sitoplasma, ribosom, dan DNA.</td>
+                <td>Sel dengan inti yang dibatasi membran dan organel bermembran.</td>
+              </tr>
+              <tr>
+                <th scope="row">Cara hidup</th>
+                <td>Bergantung pada sel inang untuk bereplikasi; tidak menjalankan metabolisme sel lengkap secara mandiri.</td>
+                <td>Organisme hidup; banyak yang dapat menjalankan metabolisme sendiri, meski kebutuhan lingkungannya beragam.</td>
+                <td>Bagian dari organisme eukariotik atau organisme bersel satu; menjalankan fungsi sel melalui sistem selnya.</td>
+              </tr>
+              <tr>
+                <th scope="row">Reproduksi</th>
+                <td>Membentuk partikel baru dengan memanfaatkan mesin sel inang; bukan membelah diri seperti sel.</td>
+                <td>Umumnya membelah diri melalui pembelahan biner.</td>
+                <td>Sel membelah melalui mitosis; meiosis berperan dalam pembentukan sel reproduktif pada organisme tertentu.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Catatan: ini adalah ringkasan umum. Ada keragaman pada bakteri, virus, dan jenis sel eukariotik.</p>
+      </article>
+
+      <article class="card glossary-card">
+        <div class="content-kicker content-kicker--explain">GLOSARIUM INTERAKTIF</div>
+        <h2>Kenali istilah penting</h2>
+        <p>Ketuk istilah untuk membuka atau menutup penjelasan singkatnya.</p>
+        <div class="glossary-list">
+          <details class="glossary-item">
+            <summary><span class="glossary-term">Virion</span><span class="glossary-hint">Partikel virus lengkap</span></summary>
+            <p>Partikel virus lengkap yang dapat berada di luar sel inang, terdiri atas materi genetik dan selubung atau struktur pelindungnya. Virus tertentu juga memiliki envelope.</p>
+          </details>
+          <details class="glossary-item">
+            <summary><span class="glossary-term">Lisis</span><span class="glossary-hint">Pecahnya sel</span></summary>
+            <p>Kerusakan hingga pecahnya membran sel, yang pada siklus litik dapat melepaskan partikel virus baru ke lingkungan sekitar.</p>
+          </details>
+          <details class="glossary-item">
+            <summary><span class="glossary-term">Lisogenik</span><span class="glossary-hint">Genom virus bertahan dalam sel inang</span></summary>
+            <p>Pada contoh klasik bakteriofag, materi genetik virus berintegrasi dengan DNA bakteri sebagai profag dan ikut disalin saat bakteri membelah, tanpa langsung melisis sel. Pada kondisi tertentu, profag dapat beralih ke siklus litik.</p>
+          </details>
+          <details class="glossary-item">
+            <summary><span class="glossary-term">Reseptor</span><span class="glossary-hint">Sasaran pengenalan virus</span></summary>
+            <p>Struktur atau molekul pada permukaan sel yang dapat dikenali dan diikat oleh komponen virus. Kecocokan reseptor ikut menentukan apakah virus dapat memasuki jenis sel tertentu.</p>
+          </details>
+        </div>
+      </article>
+
+      <article class="card lytic-lysogenic-card">
+        <div class="content-kicker content-kicker--explain">DUA POLA SIKLUS</div>
+        <h2>Siklus litik dan lisogenik</h2>
+        <p>Keduanya menjelaskan pola infeksi tertentu, terutama yang dipelajari melalui bakteriofag. Pola siklus virus dapat berbeda menurut jenis virus dan sel inangnya.</p>
+        <div class="cycle-compare">
+          <section class="cycle-panel cycle-panel--lytic">
+            <span class="cycle-symbol" aria-hidden="true">⚡</span>
+            <h3>Siklus litik</h3>
+            <p>Virus mengambil alih mesin sel untuk membuat dan merakit komponen baru. Pada akhir proses, sel inang biasanya mengalami lisis sehingga partikel virus dilepaskan.</p>
+            <div class="cycle-flow"><span>Masuk</span><i>→</i><span>Sintesis</span><i>→</i><span>Lisis</span></div>
+          </section>
+          <section class="cycle-panel cycle-panel--lysogenic">
+            <span class="cycle-symbol" aria-hidden="true">⟳</span>
+            <h3>Siklus lisogenik</h3>
+            <p>Pada bakteriofag tertentu, materi genetik virus berintegrasi ke DNA bakteri sebagai profag. Materi itu ikut disalin saat sel membelah dan dapat aktif memasuki siklus litik kemudian.</p>
+            <div class="cycle-flow"><span>Integrasi</span><i>→</i><span>Ikut disalin</span><i>→</i><span>Dapat aktif</span></div>
+          </section>
+        </div>
+      </article>
+
+      <article class="card explain-summary-card">
+        <h2>Inti yang perlu diingat</h2>
+        <p>Virus bukan sel, berbeda dari bakteri, dan membutuhkan sel inang untuk bereplikasi. Struktur virus membantu menjelaskan bagaimana virus mengenali sel, memasukkan materi genetik, membuat komponen, lalu membentuk partikel baru.</p>
+        <button class="button button--explain" id="continue-elaborate" type="button">Lanjut ke Elaborate <span aria-hidden="true">→</span></button>
+      </article>
     </section>
 
     <section class="page" id="page-elaborate" data-phase="elaborate" aria-labelledby="elaborate-title" hidden>
