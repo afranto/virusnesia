@@ -407,6 +407,57 @@
   renderSimulationStep(state.simulationStep);
   restoreCheckpoint();
 
+
+  // EXPLAIN: revisit the student's saved Engage self-check without scoring.
+  const explainQuestionData = {
+    q1: {
+      answerId: "explain-answer-q1",
+      noteId: "explain-note-q1",
+      correct: "salah",
+      aligned: "Pilihan awalmu sudah sejalan dengan penjelasan ilmiah. Ingat, virus bersifat aseluler—bukan organisme bersel tunggal.",
+      reconsider: "Tidak apa-apa jika awalnya kamu memilih jawaban berbeda. Banyak orang mengira virus adalah sel yang sangat kecil; kuncinya, virus tidak tersusun atas sel."
+    },
+    q2: {
+      answerId: "explain-answer-q2",
+      noteId: "explain-note-q2",
+      correct: "salah",
+      aligned: "Pilihan awalmu sudah sejalan dengan penjelasan ilmiah. Virus dan bakteri berbeda dari susunan dasar dan cara bereproduksinya.",
+      reconsider: "Wajar jika virus dan bakteri tampak mirip karena keduanya dapat berkaitan dengan penyakit. Namun, bakteri adalah sel hidup, sedangkan virus merupakan partikel aseluler."
+    },
+    q3: {
+      answerId: "explain-answer-q3",
+      noteId: "explain-note-q3",
+      correct: "salah",
+      aligned: "Pilihan awalmu sudah sejalan dengan penjelasan ilmiah. Virus memerlukan sel inang yang sesuai untuk menghasilkan partikel baru.",
+      reconsider: "Jika kamu sempat mengira virus bisa berkembang biak sendiri, itu kesempatan bagus untuk memperbaiki pemahaman. Virus perlu memanfaatkan mesin sel inang untuk membuat komponen virus baru."
+    }
+  };
+
+  function renderEngageReview() {
+    Object.entries(explainQuestionData).forEach(([questionId, data]) => {
+      const answer = state.misconceptionAnswers[questionId];
+      const answerEl = document.getElementById(data.answerId);
+      const noteEl = document.getElementById(data.noteId);
+      if (!answer) {
+        answerEl.textContent = "Belum dijawab";
+        answerEl.classList.add("is-unanswered");
+        noteEl.textContent = "Kamu belum menyimpan jawaban untuk pernyataan ini pada fase Engage. Kamu tetap bisa mempelajari fakta ilmiahnya di atas.";
+      } else {
+        answerEl.textContent = answer === "benar" ? "Benar" : "Salah";
+        answerEl.classList.remove("is-unanswered");
+        noteEl.textContent = answer === data.correct ? data.aligned : data.reconsider;
+      }
+    });
+  }
+
+  document.getElementById("continue-elaborate").addEventListener("click", () => {
+    completePhase("explain");
+    renderPage("elaborate");
+  });
+
+  renderEngageReview();
+
+
   function bindAnswer(buttonId, fieldId, answerKey, feedbackId, successMessage) {
     const button = document.getElementById(buttonId);
     const field = document.getElementById(fieldId);
