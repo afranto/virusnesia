@@ -867,4 +867,5 @@
 
 
   renderPage(phases.some(phase => phase.id === state.currentPage) ? state.currentPage : "home", { persist: false, scroll: false });
+  if (state.currentPage === "reflection") launchConfetti();
 })();
