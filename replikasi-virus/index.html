@@ -104,8 +104,122 @@
     </section>
 
     <section class="page" id="page-explore" data-phase="explore" aria-labelledby="explore-title" hidden>
-      <div class="phase-banner phase-banner--explore"><span class="phase-tag">FASE 2 • EXPLORE</span><h1 id="explore-title">Amati prosesnya</h1><p>Mulai dengan mengurutkan tahapan dasar replikasi virus. Konten eksplorasi akan dikembangkan pada tahap berikutnya.</p></div>
-      <article class="card"><h2>Petunjuk eksplorasi</h2><p>Perhatikan hubungan antara virus, materi genetik, dan sel inang. Catat hal yang ingin kamu ketahui sebelum masuk ke penjelasan konsep.</p><label class="field-label" for="explore-note">Catatan eksplorasi</label><textarea id="explore-note" rows="4" placeholder="Hal yang ingin saya ketahui..."></textarea><button class="button button--primary" id="save-explore">Simpan catatan</button><p class="inline-feedback" id="explore-feedback" aria-live="polite"></p></article>
+      <div class="phase-banner phase-banner--explore">
+        <span class="phase-tag">FASE 2 • EXPLORE</span>
+        <h1 id="explore-title">Kenali virus dari dekat</h1>
+        <p>Jelajahi bagian penting virus, lalu amati bagaimana infeksi berlangsung dalam enam tahap.</p>
+      </div>
+
+      <div class="explore-tabs" role="tablist" aria-label="Bagian Explore">
+        <button class="explore-tab is-active" id="tab-structure" type="button" role="tab" aria-selected="true" aria-controls="explore-structure-panel" data-explore-tab="structure">
+          <span class="explore-tab__number">01</span><span><strong>Struktur</strong><small>Kenali bagian virus</small></span>
+        </button>
+        <button class="explore-tab" id="tab-replication" type="button" role="tab" aria-selected="false" aria-controls="explore-replication-panel" data-explore-tab="replication" disabled>
+          <span class="explore-tab__number">02</span><span><strong>Replikasi</strong><small>Jelajahi 6 tahap</small></span>
+        </button>
+      </div>
+
+      <div class="explore-panel" id="explore-structure-panel" role="tabpanel" aria-labelledby="tab-structure">
+        <article class="card structure-card">
+          <div class="content-kicker">BAGIAN 1 • STRUKTUR</div>
+          <h2>Struktur virion SARS-CoV-2</h2>
+          <p>Virion adalah partikel virus lengkap yang berada di luar sel. Ketuk keempat titik pada ilustrasi untuk mengenali bagian-bagiannya.</p>
+
+          <div class="virus-diagram-wrap">
+            <div class="virus-diagram" aria-label="Ilustrasi skematis struktur virion SARS-CoV-2">
+              <span class="virus-envelope" aria-hidden="true"></span>
+              <span class="virus-membrane" aria-hidden="true"></span>
+              <span class="virus-rna" aria-hidden="true"></span>
+              <span class="virus-rna-dot virus-rna-dot--one" aria-hidden="true"></span>
+              <span class="virus-rna-dot virus-rna-dot--two" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--1" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--2" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--3" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--4" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--5" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--6" aria-hidden="true"></span>
+              <span class="virus-spike virus-spike--7" aria-hidden="true"></span>
+              <button class="hotspot hotspot--rna" type="button" data-hotspot="rna" aria-label="Pelajari Asam Nukleat RNA"><span>1</span></button>
+              <button class="hotspot hotspot--capsid" type="button" data-hotspot="capsid" aria-label="Pelajari kapsid"><span>2</span></button>
+              <button class="hotspot hotspot--envelope" type="button" data-hotspot="envelope" aria-label="Pelajari envelope"><span>3</span></button>
+              <button class="hotspot hotspot--spike" type="button" data-hotspot="spike" aria-label="Pelajari spike protein"><span>4</span></button>
+            </div>
+            <div class="diagram-caption"><span class="diagram-dot"></span> Ilustrasi skematis, tidak menunjukkan ukuran sebenarnya.</div>
+          </div>
+
+          <div class="hotspot-list" aria-label="Daftar bagian virus">
+            <button class="hotspot-chip" type="button" data-hotspot="rna"><span>1</span> Asam nukleat</button>
+            <button class="hotspot-chip" type="button" data-hotspot="capsid"><span>2</span> Kapsid</button>
+            <button class="hotspot-chip" type="button" data-hotspot="envelope"><span>3</span> Envelope</button>
+            <button class="hotspot-chip" type="button" data-hotspot="spike"><span>4</span> Spike protein</button>
+          </div>
+
+          <div class="hotspot-info" id="hotspot-info" aria-live="polite">
+            <span class="hotspot-info__label">PILIH HOTSPOT</span>
+            <h3 id="hotspot-info-title">Temukan bagian-bagian virus</h3>
+            <p id="hotspot-info-text">Ketuk titik bernomor atau nama bagian di atas untuk membuka penjelasan singkatnya.</p>
+          </div>
+
+          <div class="hotspot-progress">
+            <div class="hotspot-progress__meta"><strong>Jelajah struktur</strong><span id="hotspot-count">0 dari 4 bagian</span></div>
+            <div class="mini-progress"><span id="hotspot-progress-fill"></span></div>
+            <p id="hotspot-status" aria-live="polite">Kunjungi semua hotspot untuk membuka simulasi replikasi.</p>
+          </div>
+
+          <button class="button button--explore" id="continue-replication" type="button" disabled>Lanjut ke Replikasi <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+
+      <div class="explore-panel" id="explore-replication-panel" role="tabpanel" aria-labelledby="tab-replication" hidden>
+        <article class="card simulation-card">
+          <div class="content-kicker">BAGIAN 2 • REPLIKASI</div>
+          <h2>Simulasi interaktif 6 tahap infeksi</h2>
+          <p>Ikuti urutan tahap berikut. Gunakan tombol navigasi untuk mengamati perubahan dari pelekatan hingga pelepasan virus baru.</p>
+
+          <div class="simulation-progress">
+            <span id="simulation-step-count">TAHAP 1 DARI 6</span>
+            <span id="simulation-stage-short">Attachment</span>
+          </div>
+          <div class="simulation-track" aria-hidden="true"><span id="simulation-track-fill"></span></div>
+
+          <div class="stage-visual stage-visual--1" id="stage-visual" role="img" aria-label="Visualisasi tahap 1: Attachment (Pelekatan)">
+            <div class="stage-scene">
+              <div class="scene-cell"><span class="scene-cell__nucleus"></span><span class="scene-cell__receptor"></span><span class="scene-cell__receptor scene-cell__receptor--2"></span></div>
+              <div class="scene-virus"><span class="scene-virus__core"></span><span class="scene-virus__spikes"></span></div>
+              <span class="scene-particle scene-particle--one"></span><span class="scene-particle scene-particle--two"></span>
+              <span class="scene-arrow" aria-hidden="true">→</span>
+            </div>
+            <span class="visual-caption" id="visual-caption">Virus mendekati reseptor sel inang.</span>
+          </div>
+
+          <div class="stage-copy" aria-live="polite">
+            <span class="stage-step-label" id="stage-step-label">TAHAP 1</span>
+            <h3 id="stage-title">Attachment (Pelekatan)</h3>
+            <p id="stage-description">Virus mengenali dan menempel pada reseptor tertentu di permukaan sel inang. Kecocokan antara protein virus dan reseptor membantu menentukan sel yang dapat diinfeksi.</p>
+          </div>
+
+          <div class="simulation-controls">
+            <button class="button button--outline" id="stage-previous" type="button" disabled><span aria-hidden="true">←</span> Sebelumnya</button>
+            <button class="button button--outline" id="stage-repeat" type="button">↻ Ulangi</button>
+            <button class="button button--explore" id="stage-next" type="button">Selanjutnya <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="checkpoint" id="replication-checkpoint" hidden>
+            <div class="checkpoint-mark" aria-hidden="true">✓</div>
+            <span class="content-kicker">CHECKPOINT</span>
+            <h3>Periksa pemahamanmu</h3>
+            <p>Pada tahap manakah materi genetik virus diperbanyak dengan memanfaatkan mesin sel inang?</p>
+            <fieldset class="checkpoint-options">
+              <legend class="visually-hidden">Pilih jawaban checkpoint</legend>
+              <label class="checkpoint-option"><input type="radio" name="checkpoint-answer" value="attachment"><span>Attachment (Pelekatan)</span></label>
+              <label class="checkpoint-option"><input type="radio" name="checkpoint-answer" value="biosynthesis"><span>Biosintesis/Replikasi</span></label>
+              <label class="checkpoint-option"><input type="radio" name="checkpoint-answer" value="release"><span>Release (Pelepasan)</span></label>
+            </fieldset>
+            <p class="checkpoint-feedback" id="checkpoint-feedback" aria-live="polite"></p>
+            <button class="button button--explore" id="continue-explain" type="button" disabled>Lanjut ke Explain <span aria-hidden="true">→</span></button>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="page" id="page-explain" data-phase="explain" aria-labelledby="explain-title" hidden>
