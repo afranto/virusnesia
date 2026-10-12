@@ -115,6 +115,7 @@
       state.answers[answerKey] = field.value.trim();
       saveState();
       feedback.textContent = successMessage;
+      if (state.answers[answerKey]) completePhase(answerKey);
       showToast("Catatan tersimpan.");
     });
   }
