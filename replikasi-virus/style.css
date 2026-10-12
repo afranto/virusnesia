@@ -239,3 +239,72 @@ textarea { display:block; width:100%; min-height:110px; resize:vertical; padding
  #stage-next { grid-column:auto; }
  .checkpoint { padding:22px; }
 }
+
+
+/* FASE EXPLAIN — pembahasan self-check, tabel, glosarium */
+.phase-banner--explain {
+  background:linear-gradient(140deg,#F39C12,#d98200);
+  box-shadow:0 9px 24px rgba(243,156,18,.18);
+}
+.phase-banner--explain .phase-tag { background:rgba(255,255,255,.25); }
+.explain-intro-card { display:flex; gap:13px; align-items:flex-start; }
+.explain-intro-icon { flex:0 0 42px; display:grid; place-items:center; width:42px; height:42px; border-radius:14px; color:#895400; background:#fff0c8; font-size:23px; font-weight:850; }
+.explain-intro-card p { margin:6px 0 0; font-size:14px; color:var(--muted); }
+.explain-check-list { display:grid; gap:14px; }
+.explain-check-card { margin-top:14px; }
+.explain-check-card__heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:10px; color:#92600a; font-weight:850; letter-spacing:.08em; }
+.fact-badge { padding:5px 8px; border-radius:999px; color:#6c4c0c; background:#fff0c7; letter-spacing:.04em; }
+.explain-check-card h2 { margin:12px 0 15px; font-size:17px; line-height:1.45; }
+.answer-fact-grid { display:grid; gap:10px; }
+.student-answer { padding:12px; border:1px solid #f0dfb1; border-radius:12px; background:#fffbf0; }
+.small-label { display:block; margin-bottom:5px; color:#7d6c4c; font-size:10px; font-weight:850; text-transform:uppercase; letter-spacing:.08em; }
+.student-answer strong { font-size:15px; color:#75500c; }
+.student-answer strong.is-unanswered { color:#7a8495; font-weight:600; }
+.scientific-fact { padding:13px; border:1px solid #e6eaf1; border-radius:12px; background:#f8fafc; }
+.scientific-fact p { margin:0; color:#465164; font-size:14px; line-height:1.65; }
+.empathetic-note { margin:12px 0 0; padding:10px 12px; border-left:3px solid #F39C12; border-radius:0 9px 9px 0; background:#fff9e9; color:#6b5733; font-size:13px; }
+.content-kicker--explain { color:#b97800; }
+.comparison-card h2,.glossary-card h2,.lytic-lysogenic-card h2 { margin:7px 0; }
+.comparison-card > p,.glossary-card > p,.lytic-lysogenic-card > p { margin:0; color:var(--muted); font-size:14px; }
+.responsive-table-wrap { width:100%; margin-top:16px; overflow-x:auto; border:1px solid #e5e7eb; border-radius:13px; -webkit-overflow-scrolling:touch; }
+.comparison-table { width:100%; min-width:660px; border-collapse:separate; border-spacing:0; background:#fff; font-size:12px; line-height:1.55; }
+.comparison-table th,.comparison-table td { padding:12px 11px; text-align:left; vertical-align:top; border-bottom:1px solid #e9edf2; border-right:1px solid #e9edf2; }
+.comparison-table thead th { color:#573900; background:#fff0c7; font-size:12px; font-weight:850; }
+.comparison-table tbody th { width:100px; color:#80510c; background:#fffbf0; font-weight:800; }
+.comparison-table td { color:#475366; }
+.comparison-table tr:last-child th,.comparison-table tr:last-child td { border-bottom:0; }
+.comparison-table th:last-child,.comparison-table td:last-child { border-right:0; }
+.table-note { margin-top:10px!important; font-size:12px!important; }
+.glossary-list { display:grid; gap:9px; margin-top:16px; }
+.glossary-item { overflow:hidden; border:1px solid #e8e1d1; border-radius:12px; background:#fffdf8; }
+.glossary-item summary { position:relative; display:flex; align-items:center; gap:8px; justify-content:space-between; min-height:52px; padding:12px 14px; cursor:pointer; list-style:none; }
+.glossary-item summary::-webkit-details-marker { display:none; }
+.glossary-item summary::after { content:"+"; flex:0 0 26px; display:grid; place-items:center; width:26px; height:26px; border-radius:8px; color:#8d5a00; background:#fff0c7; font-size:18px; line-height:1; }
+.glossary-item[open] summary::after { content:"−"; }
+.glossary-term { font-weight:850; color:#6e4808; font-size:14px; }
+.glossary-hint { margin-left:auto; text-align:right; color:#7c8492; font-size:11px; }
+.glossary-item > p { margin:0; padding:0 14px 15px; color:#4d586a; font-size:14px; line-height:1.65; }
+.glossary-item[open] { border-color:#edc36f; background:#fffaf0; }
+.cycle-compare { display:grid; gap:12px; margin-top:16px; }
+.cycle-panel { padding:16px 14px; border:1px solid #e5e7eb; border-radius:14px; }
+.cycle-panel--lytic { border-color:#fac8bd; background:#fff7f4; }
+.cycle-panel--lysogenic { border-color:#d9ccf6; background:#faf7ff; }
+.cycle-symbol { display:grid; place-items:center; width:36px; height:36px; margin-bottom:10px; border-radius:11px; color:#fff; background:#e76b4e; font-size:19px; }
+.cycle-panel--lysogenic .cycle-symbol { background:#8e6bd1; }
+.cycle-panel h3 { margin:0 0 6px; font-size:17px; }
+.cycle-panel p { margin:0; color:#5a6576; font-size:13px; line-height:1.65; }
+.cycle-flow { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin-top:13px; }
+.cycle-flow span { padding:6px 8px; border-radius:8px; color:#86402d; background:#ffe4dd; font-size:10px; font-weight:800; }
+.cycle-flow i { color:#bd6b50; font-size:12px; font-style:normal; }
+.cycle-panel--lysogenic .cycle-flow span { color:#63419c; background:#ece4ff; }
+.cycle-panel--lysogenic .cycle-flow i { color:#8e6bd1; }
+.explain-summary-card { border-top:4px solid #F39C12; }
+.explain-summary-card p { font-size:14px; color:#4c586a; }
+.button--explain { margin-top:16px; color:#422e08; background:#F39C12; box-shadow:0 4px 0 #c77b00; }
+@media (min-width:560px) {
+ .answer-fact-grid { grid-template-columns:minmax(135px,.65fr) minmax(0,1.8fr); align-items:stretch; }
+ .student-answer { display:flex; flex-direction:column; justify-content:center; }
+ .cycle-compare { grid-template-columns:1fr 1fr; }
+ .comparison-table { font-size:13px; }
+ .comparison-table th,.comparison-table td { padding:14px; }
+}
