@@ -372,9 +372,94 @@
       </article>
     </section>
 
-    <section class="page" id="page-elaborate" data-phase="elaborate" aria-labelledby="elaborate-title" hidden>
-      <div class="phase-banner phase-banner--elaborate"><span class="phase-tag">FASE 4 • ELABORATE</span><h1 id="elaborate-title">Terapkan konsep</h1><p>Gunakan pemahamanmu untuk menghubungkan tahapan replikasi dengan situasi nyata.</p></div>
-      <article class="card"><h2>Ruang penerapan</h2><p>Fase penerapan akan berisi studi kasus atau aktivitas multimedia untuk membantu kamu menjelaskan proses replikasi virus berdasarkan bukti.</p><button class="button button--primary" data-complete="elaborate">Tandai fase ini selesai</button></article>
+    <section class="page" id="elaborate" data-phase="elaborate" aria-labelledby="elaborate-title" hidden>
+      <div class="phase-banner phase-banner--elaborate">
+        <span class="phase-tag">FASE 4 • ELABORATE</span>
+        <h1 id="elaborate-title">Hubungkan konsep dengan kehidupan</h1>
+        <p>Jelajahi tiga kasus virus. Perhatikan bagaimana struktur virus dan cara masuk ke sel inang membantu kita memahami penularan serta pencegahan.</p>
+      </div>
+
+      <section class="case-study-section" aria-labelledby="case-study-title">
+        <div class="case-section-heading">
+          <div>
+            <span class="content-kicker content-kicker--elaborate">KARTU STUDI KASUS</span>
+            <h2 id="case-study-title">Tiga virus, tiga konteks</h2>
+            <p>Geser kartu ke samping untuk membaca setiap kasus.</p>
+          </div>
+          <span class="swipe-hint" aria-hidden="true">Geser ↔</span>
+        </div>
+
+        <div class="case-carousel" id="case-carousel" aria-label="Kartu studi kasus virus" tabindex="0">
+          <article class="case-card case-card--covid" id="case-covid">
+            <div class="case-card__visual case-card__visual--corona" aria-hidden="true">
+              <span class="case-virus-ring"></span><span class="case-virus-core"></span>
+              <span class="case-virus-spike case-virus-spike--1"></span><span class="case-virus-spike case-virus-spike--2"></span><span class="case-virus-spike case-virus-spike--3"></span><span class="case-virus-spike case-virus-spike--4"></span><span class="case-virus-spike case-virus-spike--5"></span><span class="case-virus-spike case-virus-spike--6"></span>
+            </div>
+            <div class="case-card__body">
+              <span class="case-number">KASUS 01</span>
+              <h3>COVID-19</h3>
+              <span class="case-focus">Fokus: envelope dan sabun</span>
+              <p>SARS-CoV-2 memiliki envelope, yaitu selubung lipid yang menyelubungi partikel virus. Molekul sabun dapat mengganggu lapisan lipid ini sekaligus membantu melepaskan virus dan kotoran dari kulit saat tangan dibilas dengan air.</p>
+              <div class="case-takeaway"><strong>Hubungkan konsep</strong><span>Struktur envelope membantu menjelaskan mengapa cuci tangan dengan sabun efektif sebagai langkah pencegahan.</span></div>
+            </div>
+          </article>
+
+          <article class="case-card case-card--dengue" id="case-dengue">
+            <div class="case-card__visual case-card__visual--mosquito" aria-hidden="true">
+              <span class="mosquito-body"></span><span class="mosquito-wing mosquito-wing--1"></span><span class="mosquito-wing mosquito-wing--2"></span><span class="mosquito-leg mosquito-leg--1"></span><span class="mosquito-leg mosquito-leg--2"></span><span class="mosquito-leg mosquito-leg--3"></span><span class="mosquito-proboscis"></span>
+            </div>
+            <div class="case-card__body">
+              <span class="case-number">KASUS 02</span>
+              <h3>Demam Berdarah Dengue</h3>
+              <span class="case-focus">Fokus: vektor nyamuk dan sel inang</span>
+              <p>Virus dengue ditularkan terutama melalui gigitan nyamuk Aedes yang terinfeksi. Setelah masuk ke tubuh manusia, virus dapat mencapai jaringan dan menginfeksi sel-sel yang rentan, termasuk sejumlah sel sistem kekebalan. Virus tidak sekadar “masuk ke sel darah” secara sembarang; jenis sel dan interaksi dengan reseptor berperan dalam proses infeksi.</p>
+              <div class="case-takeaway"><strong>Hubungkan konsep</strong><span>Penularan melibatkan vektor, lalu virus harus berinteraksi dengan sel inang agar dapat masuk dan bereplikasi.</span></div>
+            </div>
+          </article>
+
+          <article class="case-card case-card--hiv" id="case-hiv">
+            <div class="case-card__visual case-card__visual--immune" aria-hidden="true">
+              <span class="immune-cell immune-cell--outer"></span><span class="immune-cell immune-cell--inner"></span><span class="immune-receptor immune-receptor--1"></span><span class="immune-receptor immune-receptor--2"></span><span class="immune-virus"></span>
+            </div>
+            <div class="case-card__body">
+              <span class="case-number">KASUS 03</span>
+              <h3>HIV</h3>
+              <span class="case-focus">Fokus: sel T CD4 dan kekebalan tubuh</span>
+              <p>HIV menyerang sel-sel tertentu dalam sistem kekebalan tubuh, terutama limfosit T CD4. Virus berikatan dengan CD4 dan koreseptor pada sel target, lalu memasukkan materi genetiknya dan menggunakan proses di dalam sel untuk bereplikasi. Jika tidak ditangani, infeksi dapat melemahkan pertahanan imun.</p>
+              <div class="case-takeaway"><strong>Hubungkan konsep</strong><span>Interaksi virus dengan reseptor dan masuknya materi genetik merupakan bagian penting dari proses infeksi.</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-footer">
+          <span id="case-carousel-status" aria-live="polite">Kartu 1 dari 3 · COVID-19</span>
+          <div class="carousel-dots" aria-label="Pilih kartu studi kasus">
+            <button class="carousel-dot is-active" type="button" data-case-index="0" aria-label="Lihat kasus COVID-19" aria-current="true"></button>
+            <button class="carousel-dot" type="button" data-case-index="1" aria-label="Lihat kasus Demam Berdarah Dengue"></button>
+            <button class="carousel-dot" type="button" data-case-index="2" aria-label="Lihat kasus HIV"></button>
+          </div>
+        </div>
+      </section>
+
+      <article class="card application-card">
+        <div class="application-heading">
+          <span class="application-icon" aria-hidden="true">✎</span>
+          <div>
+            <span class="content-kicker content-kicker--elaborate">SOAL APLIKASI</span>
+            <h2>Gunakan konsep untuk menjelaskan</h2>
+          </div>
+        </div>
+        <p class="application-question">Mengapa sabun sangat efektif membunuh virus corona jika dikaitkan dengan struktur virus di tahap replikasi?</p>
+        <p class="application-hint">Pikirkan peran envelope, struktur virus, dan bagaimana virus mempertahankan kemampuannya menginfeksi sel. Tulis dengan bahasamu sendiri; jawaban ini digunakan untuk refleksi, bukan untuk memberi nilai otomatis.</p>
+        <label class="field-label" for="elaborate-answer">Jawaban refleksifmu</label>
+        <textarea id="elaborate-answer" rows="5" placeholder="Menurut saya, sabun efektif karena..." aria-describedby="elaborate-answer-help"></textarea>
+        <div class="answer-save-row">
+          <span id="elaborate-answer-help">Jawaban tersimpan otomatis di perangkat ini.</span>
+          <span id="elaborate-char-count">0 karakter</span>
+        </div>
+        <p class="inline-feedback" id="elaborate-feedback" aria-live="polite"></p>
+        <button class="button button--elaborate" id="continue-evaluate" type="button" disabled>Lanjut ke Ujian (Evaluate) <span aria-hidden="true">→</span></button>
+      </article>
     </section>
 
     <section class="page" id="page-evaluate" data-phase="evaluate" aria-labelledby="evaluate-title" hidden>
