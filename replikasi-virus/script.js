@@ -16,7 +16,7 @@
   const defaultState = {
     currentPage: "home",
     completed: [],
-    answers: { engage: "", explore: "", reflection: "" },
+    answers: { engage: "", explore: "", elaborate: "", reflection: "" },
     misconceptionAnswers: {},
     exploreVisited: [],
     simulationStep: 1,
@@ -472,7 +472,77 @@
     });
   }
 
-  bindAnswer("save-reflection", "reflection-answer", "reflection", "reflection-feedback", "Refleksi tersimpan.");
+
+  // ELABORATE: swipeable case cards and saved application response.
+  const caseCarousel = document.getElementById("case-carousel");
+  const caseCards = [...document.querySelectorAll(".case-card")];
+  const caseDots = [...document.querySelectorAll("[data-case-index]")];
+  const caseCarouselStatus = document.getElementById("case-carousel-status");
+  const elaborateAnswer = document.getElementById("elaborate-answer");
+  const elaborateFeedback = document.getElementById("elaborate-feedback");
+  const elaborateCharCount = document.getElementById("elaborate-char-count");
+  const continueEvaluateButton = document.getElementById("continue-evaluate");
+  const caseNames = ["COVID-19", "Demam Berdarah Dengue", "HIV"];
+
+  function updateCaseCarouselStatus() {
+    let nearestIndex = 0;
+    let smallestDistance = Infinity;
+    const containerLeft = caseCarousel.getBoundingClientRect().left;
+    caseCards.forEach((card, index) => {
+      const distance = Math.abs(card.getBoundingClientRect().left - containerLeft - 3);
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        nearestIndex = index;
+      }
+    });
+    caseCarouselStatus.textContent = "Kartu " + (nearestIndex + 1) + " dari 3 · " + caseNames[nearestIndex];
+    caseDots.forEach((dot, index) => {
+      const active = index === nearestIndex;
+      dot.classList.toggle("is-active", active);
+      if (active) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+  }
+
+  caseCarousel.addEventListener("scroll", updateCaseCarouselStatus, { passive: true });
+  caseDots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const card = caseCards[Number(dot.dataset.caseIndex)];
+      if (card) caseCarousel.scrollTo({ left: card.offsetLeft - caseCarousel.offsetLeft, behavior: "smooth" });
+    });
+  });
+
+  elaborateAnswer.value = state.answers.elaborate || "";
+  function updateElaborateAnswerUI() {
+    const length = elaborateAnswer.value.trim().length;
+    elaborateCharCount.textContent = length + " karakter";
+    continueEvaluateButton.disabled = length === 0;
+  }
+  elaborateAnswer.addEventListener("input", () => {
+    state.answers.elaborate = elaborateAnswer.value;
+    saveState();
+    updateElaborateAnswerUI();
+    elaborateFeedback.textContent = "";
+  });
+
+  continueEvaluateButton.addEventListener("click", () => {
+    const response = elaborateAnswer.value.trim();
+    if (!response) {
+      elaborateFeedback.textContent = "Tulis jawaban singkat terlebih dahulu agar bisa melanjutkan.";
+      elaborateAnswer.focus();
+      return;
+    }
+    state.answers.elaborate = response;
+    saveState();
+    completePhase("elaborate");
+    renderPage("evaluate");
+  });
+
+  updateCaseCarouselStatus();
+  updateElaborateAnswerUI();
+
+
+    bindAnswer("save-reflection", "reflection-answer", "reflection", "reflection-feedback", "Refleksi tersimpan.");
 
   renderPage(phases.some(phase => phase.id === state.currentPage) ? state.currentPage : "home", { persist: false, scroll: false });
 })();
