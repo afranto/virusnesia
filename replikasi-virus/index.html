@@ -51,9 +51,56 @@
       </article>
     </section>
 
-    <section class="page" id="page-engage" data-phase="engage" aria-labelledby="engage-title" hidden>
-      <div class="phase-banner phase-banner--engage"><span class="phase-tag">FASE 1 • ENGAGE</span><h1 id="engage-title">Mulai dari rasa ingin tahu</h1><p>Mengapa virus membutuhkan sel hidup untuk menghasilkan virus baru?</p></div>
-      <article class="card"><h2>Pertanyaan pemantik</h2><p>Virus tidak memiliki sistem lengkap untuk memperbanyak diri secara mandiri. Menurutmu, apa yang dilakukan virus setelah bertemu dengan sel inang yang sesuai?</p><label class="field-label" for="engage-answer">Tulis dugaan awalmu</label><textarea id="engage-answer" rows="4" placeholder="Menurut saya, virus akan..."></textarea><button class="button button--primary" id="save-engage">Simpan dugaan & lanjutkan</button><p class="inline-feedback" id="engage-feedback" aria-live="polite"></p></article>
+    <section class="page" id="engage" data-phase="engage" aria-labelledby="engage-title" hidden>
+      <div class="phase-banner phase-banner--engage">
+        <span class="phase-tag">FASE 1 • ENGAGE</span>
+        <h1 id="engage-title">Pandemi yang mengubah dunia</h1>
+        <p>COVID-19 menunjukkan betapa cepat penyakit akibat virus dapat memengaruhi kehidupan sehari-hari. Untuk memahami peristiwa seperti ini, kita perlu mengenal virus—termasuk bagaimana virus memperbanyak diri di dalam sel inang.</p>
+      </div>
+
+      <article class="card engage-intro-card">
+        <div class="engage-context-icon" aria-hidden="true">?</div>
+        <div>
+          <h2>Mulai dari pemahamanmu</h2>
+          <p>Setiap orang membawa pengetahuan awal tentang virus. Sebelum mempelajari proses replikasi, mari periksa beberapa gagasan yang mungkin pernah kamu dengar.</p>
+        </div>
+      </article>
+
+      <section class="card self-check" aria-labelledby="self-check-title">
+        <div class="self-check-heading">
+          <span class="self-check-kicker">SELF-CHECK MISKONSEPSI</span>
+          <h2 id="self-check-title">Menurutmu, benar atau salah?</h2>
+          <p>Pilih satu jawaban untuk setiap pernyataan. Tidak ada skor atau nilai pada tahap ini. Jawabanmu akan disimpan sebagai pemikiran awal dan dibahas kembali pada fase Explain.</p>
+        </div>
+
+        <fieldset class="misconception-item" data-question="q1">
+          <legend><span class="question-number">01</span>Virus adalah makhluk hidup bersel tunggal.</legend>
+          <div class="answer-options">
+            <label class="answer-option"><input type="radio" name="q1" value="benar"><span>Benar</span></label>
+            <label class="answer-option"><input type="radio" name="q1" value="salah"><span>Salah</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="misconception-item" data-question="q2">
+          <legend><span class="question-number">02</span>Virus sama dengan bakteri, hanya ukurannya lebih kecil.</legend>
+          <div class="answer-options">
+            <label class="answer-option"><input type="radio" name="q2" value="benar"><span>Benar</span></label>
+            <label class="answer-option"><input type="radio" name="q2" value="salah"><span>Salah</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="misconception-item" data-question="q3">
+          <legend><span class="question-number">03</span>Virus dapat berkembang biak sendiri tanpa menempel pada makhluk hidup lain.</legend>
+          <div class="answer-options">
+            <label class="answer-option"><input type="radio" name="q3" value="benar"><span>Benar</span></label>
+            <label class="answer-option"><input type="radio" name="q3" value="salah"><span>Salah</span></label>
+          </div>
+        </fieldset>
+
+        <div id="engage-status" class="engage-status" aria-live="polite">Jawab ketiga pernyataan untuk membuka fase berikutnya.</div>
+        <button class="button button--engage" id="continue-explore" type="button" disabled>Lanjut ke Explore <span aria-hidden="true">→</span></button>
+        <p class="no-score-note"><span aria-hidden="true">🔒</span> Jawaban tersimpan di perangkat ini dan tidak ditampilkan sebagai skor.</p>
+      </section>
     </section>
 
     <section class="page" id="page-explore" data-phase="explore" aria-labelledby="explore-title" hidden>
