@@ -20,7 +20,9 @@
     misconceptionAnswers: {},
     exploreVisited: [],
     simulationStep: 1,
-    checkpointAnswer: ""
+    checkpointAnswer: "",
+    quiz: { answers: {}, submitted: false, score: null },
+    reflectionJournal: { learned: "", misconception: "", curious: "" }
   };
 
   let state = loadState();
@@ -45,11 +47,13 @@
         misconceptionAnswers: sanitizeMisconceptions(saved.misconceptionAnswers),
         exploreVisited: Array.isArray(saved.exploreVisited) ? saved.exploreVisited.filter(id => ["rna", "capsid", "envelope", "spike"].includes(id)) : [],
         simulationStep: Number.isInteger(saved.simulationStep) ? Math.min(6, Math.max(1, saved.simulationStep)) : 1,
-        checkpointAnswer: ["attachment", "biosynthesis", "release"].includes(saved.checkpointAnswer) ? saved.checkpointAnswer : ""
+        checkpointAnswer: ["attachment", "biosynthesis", "release"].includes(saved.checkpointAnswer) ? saved.checkpointAnswer : "",
+        quiz: sanitizeQuiz(saved.quiz),
+        reflectionJournal: sanitizeReflectionJournal(saved.reflectionJournal)
       };
     } catch (error) {
       console.warn("Progres lokal tidak dapat dibaca:", error);
-      return { ...defaultState, completed: [], answers: { ...defaultState.answers }, misconceptionAnswers: {}, exploreVisited: [], simulationStep: 1, checkpointAnswer: "" };
+      return { ...defaultState, completed: [], answers: { ...defaultState.answers }, misconceptionAnswers: {}, exploreVisited: [], simulationStep: 1, checkpointAnswer: "", quiz: { answers: {}, submitted: false, score: null }, reflectionJournal: { learned: "", misconception: "", curious: "" } };
     }
   }
 
@@ -58,6 +62,31 @@
     if (!value || typeof value !== "object") return result;
     ["q1", "q2", "q3"].forEach(key => {
       if (value[key] === "benar" || value[key] === "salah") result[key] = value[key];
+    });
+    return result;
+  }
+
+  function sanitizeQuiz(value) {
+    const result = { answers: {}, submitted: false, score: null };
+    if (!value || typeof value !== "object") return result;
+    const validIds = ["q1", "q2", "q3", "q4", "q5"];
+    if (value.answers && typeof value.answers === "object") {
+      validIds.forEach(id => {
+        if (typeof value.answers[id] === "string" && ["a", "b", "c", "d"].includes(value.answers[id])) {
+          result.answers[id] = value.answers[id];
+        }
+      });
+    }
+    result.submitted = value.submitted === true;
+    result.score = Number.isFinite(value.score) ? Math.max(0, Math.min(100, value.score)) : null;
+    return result;
+  }
+
+  function sanitizeReflectionJournal(value) {
+    const result = { learned: "", misconception: "", curious: "" };
+    if (!value || typeof value !== "object") return result;
+    ["learned", "misconception", "curious"].forEach(key => {
+      if (typeof value[key] === "string") result[key] = value[key];
     });
     return result;
   }
@@ -90,6 +119,7 @@
 
   function renderPage(pageId, options = {}) {
     const validId = phases.some(phase => phase.id === pageId) ? pageId : "home";
+    const previousPageId = state.currentPage;
     state.currentPage = validId;
     pages.forEach(page => {
       const active = page.dataset.phase === validId;
@@ -104,6 +134,7 @@
     });
     updateProgress();
     if (options.persist !== false) saveState();
+    if (validId === "reflection" && previousPageId !== "reflection") launchConfetti();
     if (options.scroll !== false) window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -542,7 +573,298 @@
   updateElaborateAnswerUI();
 
 
-    bindAnswer("save-reflection", "reflection-answer", "reflection", "reflection-feedback", "Refleksi tersimpan.");
+  
+  // EVALUATE: 5-question formative quiz, one question per screen.
+  const quizQuestions = [
+    {
+      id: "q1",
+      prompt: "Bagian manakah yang membawa informasi genetik SARS-CoV-2?",
+      options: [
+        { value: "a", text: "Spike protein" },
+        { value: "b", text: "RNA" },
+        { value: "c", text: "Envelope lipid" },
+        { value: "d", text: "Reseptor sel inang" }
+      ],
+      correct: "b",
+      explanation: "SARS-CoV-2 membawa materi genetik berupa RNA. Spike membantu pengikatan ke sel target, sedangkan envelope merupakan selubung lipid."
+    },
+    {
+      id: "q2",
+      prompt: "Pada tahap Attachment (Pelekatan), apa yang terjadi?",
+      options: [
+        { value: "a", text: "Komponen virus baru dirakit" },
+        { value: "b", text: "Virus dilepaskan dari sel inang" },
+        { value: "c", text: "Virus mengenali dan menempel pada reseptor sel inang" },
+        { value: "d", text: "Materi genetik virus disalin" }
+      ],
+      correct: "c",
+      explanation: "Attachment adalah tahap pengenalan dan pelekatan virus pada reseptor sel inang yang sesuai, bukan tahap perakitan atau pelepasan."
+    },
+    {
+      id: "q3",
+      prompt: "Apa makna tahap Uncoating (Pelepasan selubung)?",
+      options: [
+        { value: "a", text: "Materi genetik virus dilepaskan dari selubung atau kapsidnya" },
+        { value: "b", text: "Virus melekat pada reseptor sel" },
+        { value: "c", text: "Virus baru keluar dari sel" },
+        { value: "d", text: "Nyamuk memindahkan virus ke manusia" }
+      ],
+      correct: "a",
+      explanation: "Uncoating membuka atau melepaskan pelindung genom sehingga materi genetik virus dapat digunakan pada tahap berikutnya."
+    },
+    {
+      id: "q4",
+      prompt: "Pada tahap Biosintesis/Replikasi, proses utama yang berlangsung adalah…",
+      options: [
+        { value: "a", text: "Virus hanya menempel pada permukaan sel" },
+        { value: "b", text: "Sel inang langsung pecah sebelum komponen virus dibuat" },
+        { value: "c", text: "Virus tidak berinteraksi dengan sel inang" },
+        { value: "d", text: "Materi genetik disalin dan komponen virus diproduksi dengan bantuan sel inang" }
+      ],
+      correct: "d",
+      explanation: "Pada biosintesis, virus menggunakan mesin sel inang untuk menyalin materi genetik dan menghasilkan komponen virus seperti protein."
+    },
+    {
+      id: "q5",
+      prompt: "Urutan manakah yang tepat untuk tiga tahap akhir pada model enam tahap yang dipelajari?",
+      options: [
+        { value: "a", text: "Entry → Attachment → Release" },
+        { value: "b", text: "Uncoating → Attachment → Assembly" },
+        { value: "c", text: "Biosintesis/Replikasi → Assembly → Release" },
+        { value: "d", text: "Release → Biosintesis/Replikasi → Entry" }
+      ],
+      correct: "c",
+      explanation: "Dalam model enam tahap ini, komponen virus dibuat pada tahap biosintesis, dirakit pada tahap assembly, lalu partikel baru dilepaskan pada tahap release."
+    }
+  ];
+
+  const quizPlayPanel = document.getElementById("quiz-play-panel");
+  const quizResultPanel = document.getElementById("quiz-result-panel");
+  const quizQuestionCount = document.getElementById("quiz-question-count");
+  const quizAnsweredCount = document.getElementById("quiz-answered-count");
+  const quizProgressFill = document.getElementById("quiz-progress-fill");
+  const quizQuestionNumber = document.getElementById("quiz-question-number");
+  const quizQuestionText = document.getElementById("quiz-question-text");
+  const quizOptions = document.getElementById("quiz-options");
+  const quizFeedback = document.getElementById("quiz-feedback");
+  const quizPreviousButton = document.getElementById("quiz-previous");
+  const quizNextButton = document.getElementById("quiz-next");
+  const quizRetryButton = document.getElementById("quiz-retry");
+  const quizToReflectionButton = document.getElementById("quiz-to-reflection");
+  let currentQuizIndex = 0;
+
+  function countQuizAnswers() {
+    return quizQuestions.filter(question => Boolean(state.quiz.answers[question.id])).length;
+  }
+
+  function renderQuizQuestion() {
+    const question = quizQuestions[currentQuizIndex];
+    const chosen = state.quiz.answers[question.id] || "";
+    quizQuestionCount.textContent = "SOAL " + (currentQuizIndex + 1) + " DARI " + quizQuestions.length;
+    quizAnsweredCount.textContent = countQuizAnswers() + "/" + quizQuestions.length + " dijawab";
+    quizProgressFill.style.width = ((currentQuizIndex + 1) / quizQuestions.length * 100) + "%";
+    quizQuestionNumber.textContent = "PERTANYAAN " + String(currentQuizIndex + 1).padStart(2, "0");
+    quizQuestionText.textContent = question.prompt;
+    quizOptions.replaceChildren();
+
+    question.options.forEach(option => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "quiz-option";
+      button.setAttribute("aria-pressed", String(chosen === option.value));
+      const letter = document.createElement("span");
+      letter.className = "quiz-option__letter";
+      letter.textContent = option.value.toUpperCase();
+      const textNode = document.createElement("span");
+      textNode.className = "quiz-option__text";
+      textNode.textContent = option.text;
+      button.append(letter, textNode);
+      if (chosen === option.value) button.classList.add("is-selected");
+      if (chosen && option.value === question.correct) button.classList.add("is-correct");
+      if (chosen && chosen === option.value && chosen !== question.correct) button.classList.add("is-wrong");
+      button.addEventListener("click", () => selectQuizAnswer(question, option.value));
+      quizOptions.append(button);
+    });
+
+    quizFeedback.hidden = !chosen;
+    quizFeedback.className = "quiz-feedback";
+    if (chosen) {
+      const isCorrect = chosen === question.correct;
+      quizFeedback.classList.add(isCorrect ? "is-correct" : "is-wrong");
+      const explanation = isCorrect
+        ? "Tepat! " + question.explanation
+        : "Belum tepat. " + question.explanation;
+      quizFeedback.textContent = explanation;
+    }
+
+    quizPreviousButton.disabled = currentQuizIndex === 0;
+    quizNextButton.disabled = !chosen;
+    quizNextButton.innerHTML = currentQuizIndex === quizQuestions.length - 1
+      ? "Lihat Skor Akhir <span aria-hidden=\"true\">→</span>"
+      : "Selanjutnya <span aria-hidden=\"true\">→</span>";
+  }
+
+  function selectQuizAnswer(question, value) {
+    if (state.quiz.submitted) return;
+    state.quiz.answers[question.id] = value;
+    saveState();
+    renderQuizQuestion();
+  }
+
+  function calculateQuizScore() {
+    return quizQuestions.reduce((score, question) => score + (state.quiz.answers[question.id] === question.correct ? 1 : 0), 0);
+  }
+
+  function submitQuiz() {
+    if (countQuizAnswers() < quizQuestions.length) {
+      showToast("Jawab semua soal terlebih dahulu.");
+      return;
+    }
+    const correctCount = calculateQuizScore();
+    state.quiz.submitted = true;
+    state.quiz.score = Math.round(correctCount / quizQuestions.length * 100);
+    saveState();
+    completePhase("evaluate");
+    renderQuizResults();
+  }
+
+  function renderQuizResults() {
+    quizPlayPanel.hidden = true;
+    quizResultPanel.hidden = false;
+    const correctCount = calculateQuizScore();
+    const score = Math.round(correctCount / quizQuestions.length * 100);
+    document.getElementById("quiz-final-score").textContent = String(score);
+    document.getElementById("quiz-correct-count").textContent = correctCount + " dari " + quizQuestions.length + " jawaban benar";
+    document.getElementById("quiz-result-title").textContent = score === 100 ? "Sempurna! 🎉" : score >= 60 ? "Bagus, terus bertumbuh! 🌟" : "Terus berlatih, Penjelajah! 💪";
+    document.getElementById("quiz-result-summary").textContent = score === 100
+      ? "Kamu memahami konsep yang diujikan dengan sangat baik. Pertahankan rasa ingin tahumu!"
+      : score >= 60
+        ? "Kamu sudah memahami banyak konsep. Tinjau kembali umpan balik soal dan terus asah pemahamanmu."
+        : "Hasil ini adalah potret belajar saat ini, bukan batas kemampuanmu. Baca kembali penjelasan dan coba lagi.";
+    const review = document.getElementById("quiz-review");
+    review.replaceChildren();
+    quizQuestions.forEach((question, index) => {
+      const chosen = state.quiz.answers[question.id];
+      const optionChosen = question.options.find(option => option.value === chosen);
+      const correctOption = question.options.find(option => option.value === question.correct);
+      const correct = chosen === question.correct;
+      const item = document.createElement("div");
+      item.className = "quiz-review-item " + (correct ? "is-correct" : "is-wrong");
+      const mark = document.createElement("span");
+      mark.className = "quiz-review-mark";
+      mark.textContent = correct ? "✓" : "!";
+      const content = document.createElement("div");
+      const title = document.createElement("strong");
+      title.textContent = "Soal " + (index + 1) + ": " + (correct ? "Benar" : "Perlu ditinjau");
+      const details = document.createElement("span");
+      details.textContent = "Jawabanmu: " + (optionChosen ? optionChosen.text : "Tidak dijawab") + (correct ? "" : " · Jawaban tepat: " + correctOption.text);
+      content.append(title, details);
+      item.append(mark, content);
+      review.append(item);
+    });
+  }
+
+  quizNextButton.addEventListener("click", () => {
+    if (!state.quiz.answers[quizQuestions[currentQuizIndex].id]) return;
+    if (currentQuizIndex < quizQuestions.length - 1) {
+      currentQuizIndex += 1;
+      renderQuizQuestion();
+    } else {
+      submitQuiz();
+    }
+  });
+
+  quizPreviousButton.addEventListener("click", () => {
+    if (currentQuizIndex > 0) {
+      currentQuizIndex -= 1;
+      renderQuizQuestion();
+    }
+  });
+
+  quizRetryButton.addEventListener("click", () => {
+    state.quiz = { answers: {}, submitted: false, score: null };
+    state.completed = state.completed.filter(id => id !== "evaluate");
+    currentQuizIndex = 0;
+    saveState();
+    quizResultPanel.hidden = true;
+    quizPlayPanel.hidden = false;
+    renderQuizQuestion();
+    showToast("Kuis diulang. Semangat mencoba lagi!");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  quizToReflectionButton.addEventListener("click", () => {
+    if (!state.quiz.submitted) return;
+    renderPage("reflection");
+  });
+
+  function restoreQuizUI() {
+    if (state.quiz.submitted && countQuizAnswers() === quizQuestions.length) {
+      renderQuizResults();
+    } else {
+      state.quiz.submitted = false;
+      state.quiz.score = null;
+      quizResultPanel.hidden = true;
+      quizPlayPanel.hidden = false;
+      const firstUnanswered = quizQuestions.findIndex(question => !state.quiz.answers[question.id]);
+      currentQuizIndex = firstUnanswered < 0 ? quizQuestions.length - 1 : firstUnanswered;
+      renderQuizQuestion();
+    }
+  }
+
+  // REFLECTION: journal answers persist locally, and the badge celebrates completion.
+  const journalFields = {
+    learned: document.getElementById("reflection-learned"),
+    misconception: document.getElementById("reflection-misconception"),
+    curious: document.getElementById("reflection-curious")
+  };
+  const reflectionSaveStatus = document.getElementById("reflection-save-status");
+  const reflectionSaveButton = document.getElementById("reflection-save-all");
+  let journalSaveTimer;
+
+  Object.entries(journalFields).forEach(([key, field]) => {
+    field.value = state.reflectionJournal[key] || "";
+    field.addEventListener("input", () => {
+      state.reflectionJournal[key] = field.value;
+      reflectionSaveStatus.textContent = "Menyimpan jurnal…";
+      window.clearTimeout(journalSaveTimer);
+      journalSaveTimer = window.setTimeout(() => {
+        saveState();
+        reflectionSaveStatus.textContent = "Tersimpan otomatis di perangkat ini.";
+      }, 250);
+    });
+  });
+
+  reflectionSaveButton.addEventListener("click", () => {
+    Object.entries(journalFields).forEach(([key, field]) => {
+      state.reflectionJournal[key] = field.value;
+    });
+    saveState();
+    reflectionSaveStatus.textContent = "Jurnal refleksi berhasil disimpan. Terima kasih sudah meluangkan waktu untuk berpikir.";
+    showToast("Jurnal refleksi tersimpan.");
+  });
+
+  function launchConfetti() {
+    const layer = document.getElementById("confetti-layer");
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    layer.replaceChildren();
+    const palette = ["#8E44AD", "#C39BD3", "#F39C12", "#27AE60", "#2980B9", "#E74C3C", "#F7DC6F"];
+    for (let i = 0; i < 58; i += 1) {
+      const piece = document.createElement("span");
+      piece.className = "confetti-piece";
+      piece.style.setProperty("--left", (Math.random() * 100) + "%");
+      piece.style.setProperty("--size", (5 + Math.random() * 7) + "px");
+      piece.style.setProperty("--color", palette[i % palette.length]);
+      piece.style.setProperty("--drift", ((Math.random() - 0.5) * 180) + "px");
+      piece.style.setProperty("--spin", (360 + Math.random() * 900) + "deg");
+      piece.style.setProperty("--duration", (2.1 + Math.random() * 1.6) + "s");
+      piece.style.setProperty("--delay", (Math.random() * 0.65) + "s");
+      layer.append(piece);
+    }
+    window.setTimeout(() => layer.replaceChildren(), 4300);
+  }
+
+
 
   renderPage(phases.some(phase => phase.id === state.currentPage) ? state.currentPage : "home", { persist: false, scroll: false });
 })();
