@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virusnesia — Eksplorasi Dunia Virus SMA Kelas X</title>
+  <!-- Google Fonts only as specified -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- GLOBAL HEADER -->
+  <header class="sticky-header">
+    <div class="container header-content">
+      <div class="logo-area" onclick="navigateTo('landing')">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="6"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <span class="logo-text">Virusnesia</span>
+      </div>
+
+      <!-- Navigation Steps Indicator -->
+      <nav class="module-nav-pips" id="headerPipNav">
+        <button class="pip-step active" id="pip-landing" onclick="navigateTo('landing')">
+          <span class="pip-dot"></span> Hero
+        </button>
+        <span class="pip-divider">/</span>
+        <button class="pip-step" id="pip-modul1" onclick="navigateTo('modul1')">
+          <span class="pip-dot"></span> Modul 1
+        </button>
+        <span class="pip-divider">/</span>
+        <button class="pip-step" id="pip-modul2" onclick="navigateTo('modul2')">
+          <span class="pip-dot"></span> Modul 2
+        </button>
+        <span class="pip-divider">/</span>
+        <button class="pip-step" id="pip-modul3" onclick="navigateTo('modul3')">
+          <span class="pip-dot"></span> Modul 3
+        </button>
+        <span class="pip-divider">/</span>
+        <button class="pip-step" id="pip-modul4" onclick="navigateTo('modul4')">
+          <span class="pip-dot"></span> Modul 4
+        </button>
+        <span class="pip-divider">/</span>
+        <button class="pip-step" id="pip-refleksi" onclick="navigateTo('refleksi')">
+          <span class="pip-dot"></span> Refleksi
+        </button>
+      </nav>
+
+      <!-- Badges Counter -->
+      <div class="badge-counter" title="Badge Pencapaian Belajar">
+        <span style="color: #94a3b8; font-size: 0.75rem; font-weight: 600;">Badge:</span>
+        <span class="badge-item" id="badge-icon-1" title="🔬 Pengenal Virus (Selesaikan Asesmen Modul 1)">🔬</span>
+        <span class="badge-item" id="badge-icon-2" title="🧬 Analis Replikasi (Selesaikan Asesmen Modul 2)">🧬</span>
+        <span class="badge-item" id="badge-icon-3" title="🌐 Ahli Ekologi Virus (Selesaikan Asesmen Modul 3)">🌐</span>
+        <span class="badge-item" id="badge-icon-4" title="🏅 Epidemiolog Muda (Selesaikan Asesmen Modul 4)">🏅</span>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="btn btn-secondary" onclick="navigateTo('landing'); toggleMobileMenu();">🏠 Beranda (Hero)</button>
+      <button class="btn btn-secondary" onclick="navigateTo('modul1'); toggleMobileMenu();">🔬 Modul 1: Karakteristik Virus</button>
+      <button class="btn btn-secondary" onclick="navigateTo('modul2'); toggleMobileMenu();">🧬 Modul 2: Siklus Replikasi</button>
+      <button class="btn btn-secondary" onclick="navigateTo('modul3'); toggleMobileMenu();">🗺️ Modul 3: Peranan Virus</button>
+      <button class="btn btn-secondary" onclick="navigateTo('modul4'); toggleMobileMenu();">📊 Modul 4: Evaluasi Solusi</button>
+      <button class="btn btn-secondary" onclick="navigateTo('refleksi'); toggleMobileMenu();">💭 Refleksi Akhir</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- SECTION 1: LANDING PAGE (HERO)             -->
+    <!-- ========================================== -->
+    <section id="section-landing" class="spa-section active">
+      <div class="container" style="padding-top: clamp(2rem, 5vw, 4rem); padding-bottom: 3rem;">
+        <!-- HERO: Homepage ringkas -->
+        <div style="position: relative; overflow: hidden; background: radial-gradient(ellipse at 80% 10%, rgba(99,102,241,.18), transparent 42%), radial-gradient(ellipse at 10% 80%, rgba(56,189,248,.12), transparent 38%), #0b1120; border: 1px solid #1e293b; border-radius: 1.5rem; padding: clamp(1.5rem, 5vw, 3.5rem); text-align: left;">
+          <div style="max-width: 820px; position: relative; z-index: 1;">
+            <div style="display: inline-flex; align-items: center; gap: .5rem; background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.25); padding: .4rem .85rem; border-radius: 999px; margin-bottom: 1.25rem; color: #7dd3fc; font-size: .8rem; font-weight: 700;">
+              BIOLOGI · SMA KELAS X · KURIKULUM MERDEKA
+            </div>
+            <h1 style="font-size: clamp(2.4rem, 6vw, 4.25rem); font-weight: 800; letter-spacing: -.04em; margin-bottom: 1rem;">
+              Kenali Dunia <span style="background: linear-gradient(135deg,#38bdf8,#818cf8,#c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Virus</span>
+            </h1>
+            <p style="max-width: 680px; color: #cbd5e1; font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.8; margin-bottom: 1.5rem;">
+              Pelajari karakteristik virus, amati proses replikasinya, dan gunakan konsep biologi untuk menganalisis kasus penyakit serta pencegahannya.
+            </p>
+            <div style="display: flex; gap: .75rem; flex-wrap: wrap;">
+              <button class="btn btn-primary" onclick="navigateTo('modul1')" style="padding: .85rem 1.35rem;">Mulai Belajar <span aria-hidden="true">→</span></button>
+              <button class="btn btn-secondary" onclick="scrollToElement('tp-box')" style="padding: .85rem 1.1rem;">Lihat Tujuan Pembelajaran</button>
+            </div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; right: 5%; top: 12%; width: clamp(90px, 18vw, 180px); aspect-ratio: 1; border: 1px solid rgba(56,189,248,.25); border-radius: 50%; box-shadow: 0 0 70px rgba(56,189,248,.12), inset 0 0 35px rgba(129,140,248,.12);">
+            <div style="position: absolute; inset: 18%; border: 2px dashed rgba(129,140,248,.55); border-radius: 50%; transform: rotate(35deg);"></div>
+            <div style="position: absolute; width: 22%; aspect-ratio: 1; background: linear-gradient(135deg,#38bdf8,#818cf8); border-radius: 50%; top: 39%; left: 39%; box-shadow: 0 0 28px rgba(56,189,248,.45);"></div>
+            <span style="position:absolute; width:9%; aspect-ratio:1; background:#c084fc; border-radius:50%; top:8%; left:44%;"></span>
+            <span style="position:absolute; width:8%; aspect-ratio:1; background:#38bdf8; border-radius:50%; bottom:14%; right:12%;"></span>
+          </div>
+        </div>
+
+        <!-- TUJUAN PEMBELAJARAN -->
+        <div id="tp-box" style="margin-top: 1.5rem; background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 1rem; padding: clamp(1.1rem, 3vw, 1.75rem);">
+          <div style="display:flex; gap:.75rem; align-items:flex-start; margin-bottom:1rem;">
+            <span style="font-size:1.4rem;">🎯</span>
+            <div><h2 style="font-size:1.2rem; margin-bottom:.25rem;">Tujuan Pembelajaran</h2><p style="font-size:.85rem; color:#94a3b8;">Setelah belajar, peserta didik diharapkan mampu:</p></div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:.85rem;">
+            <div style="background:#090e17; border-left:3px solid #38bdf8; padding:1rem; border-radius:0 .5rem .5rem 0;"><strong style="color:#7dd3fc; font-size:.8rem;">01 · MENGANALISIS</strong><p style="font-size:.88rem; color:#cbd5e1; margin-top:.4rem;">Menganalisis karakteristik virus dan peranannya dalam kehidupan.</p></div>
+            <div style="background:#090e17; border-left:3px solid #818cf8; padding:1rem; border-radius:0 .5rem .5rem 0;"><strong style="color:#a5b4fc; font-size:.8rem;">02 · MEMAHAMI PROSES</strong><p style="font-size:.88rem; color:#cbd5e1; margin-top:.4rem;">Menjelaskan tahapan replikasi serta membedakan siklus litik dan lisogenik.</p></div>
+            <div style="background:#090e17; border-left:3px solid #34d399; padding:1rem; border-radius:0 .5rem .5rem 0;"><strong style="color:#6ee7b7; font-size:.8rem;">03 · MENGEVALUASI</strong><p style="font-size:.88rem; color:#cbd5e1; margin-top:.4rem;">Menganalisis kasus dan mengevaluasi tindakan pencegahan berdasarkan informasi ilmiah.</p></div>
+          </div>
+        </div>
+
+        <!-- PETUNJUK PENGGUNAAN -->
+        <div style="margin-top:1.5rem; background:#0f172a; border:1px solid var(--border-subtle); border-radius:1rem; padding:clamp(1.1rem,3vw,1.5rem);">
+          <h2 style="font-size:1.15rem; margin-bottom:.9rem;">🧭 Petunjuk Penggunaan</h2>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr)); gap:.85rem;">
+            <div style="display:flex; gap:.7rem; align-items:flex-start;"><span style="color:#38bdf8; font-weight:800;">1.</span><p style="font-size:.85rem; color:#cbd5e1;">Ikuti urutan kegiatan belajar dari Engage sampai Evaluate.</p></div>
+            <div style="display:flex; gap:.7rem; align-items:flex-start;"><span style="color:#38bdf8; font-weight:800;">2.</span><p style="font-size:.85rem; color:#cbd5e1;">Amati animasi, baca penjelasan, dan cobalah aktivitas interaktif.</p></div>
+            <div style="display:flex; gap:.7rem; align-items:flex-start;"><span style="color:#38bdf8; font-weight:800;">3.</span><p style="font-size:.85rem; color:#cbd5e1;">Kerjakan evaluasi, baca umpan balik, lalu isi refleksi akhir.</p></div>
+          </div>
+        </div>
+
+        <!-- PINTASAN MATERI: dipetakan ke modul lama agar fungsi tetap terjaga -->
+        <div style="margin-top:2rem;">
+          <div style="display:flex; justify-content:space-between; align-items:end; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;">
+            <div><p style="font-size:.75rem; color:#38bdf8; font-weight:800; letter-spacing:.12em;">JALUR BELAJAR</p><h2 style="font-size:clamp(1.35rem,3vw,1.8rem); margin-top:.25rem;">Jelajahi Materi Virus</h2></div>
+            <p style="font-size:.82rem; color:#94a3b8;">Pilih bagian untuk membuka aktivitasnya.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); gap:1rem;">
+            <button class="btn btn-secondary" onclick="navigateTo('modul1')" style="display:block; text-align:left; white-space:normal; padding:1.2rem; min-height:150px; border-radius:.9rem;">
+              <span style="display:block; color:#38bdf8; font-size:.75rem; font-weight:800; margin-bottom:.65rem;">01 · ENGAGE</span><strong style="display:block; font-size:1rem; margin-bottom:.45rem;">Mulai dari Kasus</strong><span style="display:block; color:#94a3b8; font-size:.82rem; font-weight:400; line-height:1.6;">Amati konteks penyakit akibat virus dan pikirkan pertanyaan pemantik.</span>
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('modul2')" style="display:block; text-align:left; white-space:normal; padding:1.2rem; min-height:150px; border-radius:.9rem;">
+              <span style="display:block; color:#818cf8; font-size:.75rem; font-weight:800; margin-bottom:.65rem;">02 · EXPLORE</span><strong style="display:block; font-size:1rem; margin-bottom:.45rem;">Jelajahi Replikasi</strong><span style="display:block; color:#94a3b8; font-size:.82rem; font-weight:400; line-height:1.6;">Amati animasi dan bandingkan siklus litik dengan lisogenik.</span>
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('modul2')" style="display:block; text-align:left; white-space:normal; padding:1.2rem; min-height:150px; border-radius:.9rem;">
+              <span style="display:block; color:#a78bfa; font-size:.75rem; font-weight:800; margin-bottom:.65rem;">03 · EXPLAIN</span><strong style="display:block; font-size:1rem; margin-bottom:.45rem;">Pahami Tahapannya</strong><span style="display:block; color:#94a3b8; font-size:.82rem; font-weight:400; line-height:1.6;">Pelajari urutan proses replikasi dan makna tiap tahap.</span>
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('modul3')" style="display:block; text-align:left; white-space:normal; padding:1.2rem; min-height:150px; border-radius:.9rem;">
+              <span style="display:block; color:#34d399; font-size:.75rem; font-weight:800; margin-bottom:.65rem;">04 · ELABORATE</span><strong style="display:block; font-size:1rem; margin-bottom:.45rem;">Analisis Studi Kasus</strong><span style="display:block; color:#94a3b8; font-size:.82rem; font-weight:400; line-height:1.6;">Terapkan konsep virus untuk memahami penyakit dan pencegahannya.</span>
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('modul4')" style="display:block; text-align:left; white-space:normal; padding:1.2rem; min-height:150px; border-radius:.9rem;">
+              <span style="display:block; color:#fbbf24; font-size:.75rem; font-weight:800; margin-bottom:.65rem;">05 · EVALUATE</span><strong style="display:block; font-size:1rem; margin-bottom:.45rem;">Uji Pemahaman</strong><span style="display:block; color:#94a3b8; font-size:.82rem; font-weight:400; line-height:1.6;">Kerjakan asesmen, lihat umpan balik, dan evaluasi pemahamanmu.</span>
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('refleksi')" style="display:block; text-align:left; white-space:normal; padding:1.2rem; min-height:150px; border-radius:.9rem;">
+              <span style="display:block; color:#f472b6; font-size:.75rem; font-weight:800; margin-bottom:.65rem;">06 · REFLEKSI</span><strong style="display:block; font-size:1rem; margin-bottom:.45rem;">Tinjau Perjalanan Belajar</strong><span style="display:block; color:#94a3b8; font-size:.82rem; font-weight:400; line-height:1.6;">Catat hal yang dipahami, hal yang menarik, dan pertanyaan lanjutan.</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: MODUL 1 — KARAKTERISTIK VIRUS   -->
+    <!-- ========================================== -->
+    <section id="section-modul1" class="spa-section">
+      <div class="container">
+        
+        <!-- Metadata Bar -->
+        <div class="modul-meta-bar">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #38bdf8;">MODUL 1 DARI 4</span>
+            <h2 style="font-size: 1.45rem; font-weight: 800; margin-top: 0.2rem;">Karakteristik Virus (Virus Explorer 3D)</h2>
+          </div>
+          <div class="meta-badges">
+            <span class="chip chip-accent">TP 1 · Bloom C4 (Analyze)</span>
+            <span class="chip" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border-color: rgba(168, 85, 247, 0.3);">
+              Target Badge: 🔬 Pengenal Virus
+            </span>
+          </div>
+        </div>
+
+        <!-- MMJ Mindful Card -->
+        <div class="mmj-card mmj-mindful">
+          <div class="mmj-badge-tag tag-mindful">🧠 MMJ — Mindful Thinking</div>
+          <p style="font-size: 0.95rem; font-style: italic; color: #e2e8f0; font-weight: 500;">
+            "Sebelum mulai, tuliskan dalam pikiranmu: apakah virus makhluk hidup? Jawaban tidak ada yang salah — ini titik awalmu berpikir."
+          </p>
+        </div>
+
+        <!-- MMJ Meaningful Card (Konteks Indonesia) -->
+        <div class="mmj-card mmj-meaningful">
+          <div class="mmj-badge-tag tag-meaningful">🇮🇩 MMJ — Meaningful Context (Indonesia)</div>
+          <p style="font-size: 0.92rem; color: #d1fae5; line-height: 1.65;">
+            "Pada Februari 2022, lebih dari 352.000 warga Indonesia meninggal akibat COVID-19. Pada 2023, lebih dari 12.000 kasus gigitan hewan penular rabies dilaporkan di NTT. Setiap tahun, jutaan anak Indonesia terserang DBD. Di balik semua itu, ada entitas berukuran nanometer — virus — yang strukturnya menentukan segalanya. Mari kita pelajari dari dalam."
+          </p>
+        </div>
+
+        <!-- JOYFUL: VIRUS EXPLORER -->
+        <div style="margin-top: 1.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-joyful">✨ MMJ — Joyful Explorer</span>
+              <h3 style="font-size: 1.15rem;">Sistem Panel A · B · C (10 Virus Komparatif)</h3>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Pilih virus di sidebar kiri:</span>
+          </div>
+
+          <div class="explorer-grid">
+            <!-- Sidebar 10 Virus -->
+            <div class="virus-sidebar" id="virusSidebarList">
+              <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Display Panel -->
+            <div class="virus-display-panel" id="virusMainDisplay">
+              <!-- Header current virus -->
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <span id="v-badge-dot" style="width: 14px; height: 14px; border-radius: 50%; display: inline-block;"></span>
+                    <h2 id="v-title" style="font-size: 1.5rem; font-weight: 800;">Dengue Virus (DENV)</h2>
+                  </div>
+                  <p id="v-subtitle" style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">
+                    Famili Flaviviridae · Vektor Aedes aegypti · Endemik Indonesia
+                  </p>
+                </div>
+                <div style="text-align: right;">
+                  <span id="v-envelope-badge" class="chip chip-accent">Beramplop</span>
+                  <span id="v-genome-badge" class="chip" style="margin-left: 0.4rem; background: #1e293b; color: #fff;">+ssRNA</span>
+                </div>
+              </div>
+
+              <!-- ABC PANELS -->
+              <div class="abc-panels-container">
+                <!-- PANEL A: Exterior 3D View (Rotating CSS 360/20s) -->
+                <div class="scientific-panel">
+                  <div class="panel-header-label">
+                    <span>Panel A — Tampilan Luar (Exterior)</span>
+                    <span style="font-size: 0.65rem; color: #38bdf8; font-family: var(--font-mono);">ROTASI 360°/20s</span>
+                  </div>
+                  <div class="svg-viewport" id="panelA-viewport">
+                    <!-- SVG Exterior View with accurate protein distribution -->
+                  </div>
+                  <div id="panelA-caption" style="font-size: 0.725rem; color: var(--text-dim); margin-top: 0.6rem; text-align: center;">
+                    Distribusi protein permukaan akurat berdasarkan literatur ilmiah.
+                  </div>
+                </div>
+
+                <!-- PANEL B: Cross-Section with Leader Lines & Scale Bar -->
+                <div class="scientific-panel">
+                  <div class="panel-header-label">
+                    <span>Panel B — Irisan Melintang (Cross-Section)</span>
+                    <span style="font-size: 0.65rem; color: #34d399; font-family: var(--font-mono);">LABELED ANATOMY</span>
+                  </div>
+                  <div class="svg-viewport" id="panelB-viewport" style="height: 280px;">
+                    <!-- SVG Cross-section with leader lines and scale bar -->
+                  </div>
+                  <div id="panelB-caption" style="font-size: 0.725rem; color: var(--text-dim); margin-top: 0.6rem; text-align: center;">
+                    Lapisan interior dari permukaan luar hingga materi genetik di pusat virion.
+                  </div>
+                </div>
+              </div>
+
+              <!-- EXPLORER TABS NAVIGATION -->
+              <div class="explorer-tabs">
+                <button class="exp-tab-btn active" onclick="switchExpTab('struktur')">1. STRUKTUR</button>
+                <button class="exp-tab-btn" onclick="switchExpTab('genom')">2. GENOM</button>
+                <button class="exp-tab-btn" onclick="switchExpTab('patogenesis')">3. PATOGENESIS</button>
+                <button class="exp-tab-btn" onclick="switchExpTab('replikasi')">4. REPLIKASI</button>
+                <button class="exp-tab-btn" onclick="switchExpTab('ukuran')">5. UKURAN RELATIF (10 VIRUS)</button>
+              </div>
+
+              <!-- TAB 1: STRUKTUR -->
+              <div id="tab-pane-struktur" class="tab-content-pane active">
+                <div class="spec-grid">
+                  <div class="spec-card">
+                    <div class="spec-label">Amplop Lipid</div>
+                    <div class="spec-val" id="spec-amplop">Ya (Lipid Bilayer)</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-label">Simetri Kapsid</div>
+                    <div class="spec-val" id="spec-kapsid">Semu-ikosahedral</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-label">Materi Genetik</div>
+                    <div class="spec-val" id="spec-genom">+ssRNA (~10,7 kb)</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-label">Ukuran Virion</div>
+                    <div class="spec-val" id="spec-ukuran">~50 nm diameter</div>
+                  </div>
+                </div>
+
+                <h4 style="font-size: 0.95rem; margin-bottom: 0.6rem; color: #f1f5f9;">Komponen Protein & Fungsi Biologis:</h4>
+                <div id="protein-list-container" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+              <!-- TAB 2: GENOM (PANEL C) -->
+              <div id="tab-pane-genom" class="tab-content-pane">
+                <div class="genome-bar-wrapper">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 style="font-size: 0.95rem; color: #fff;">Panel C — Peta Organisasi Genom</h4>
+                    <span style="font-size: 0.725rem; color: var(--text-dim);">Hover untuk tooltip fungsi protein</span>
+                  </div>
+                  <div class="genome-track" id="panelC-genomeTrack">
+                    <!-- Segment bars generated dynamically -->
+                  </div>
+                </div>
+
+                <div class="spec-grid" style="margin-top: 1rem;">
+                  <div class="spec-card">
+                    <div class="spec-label">Total Panjang Genom</div>
+                    <div class="spec-val" id="genom-panjang">-</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-label">Jumlah Protein Dikode</div>
+                    <div class="spec-val" id="genom-protein-count">-</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-label">Tipe & Polaritas</div>
+                    <div class="spec-val" id="genom-tipe">-</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-label">Kategori Protein</div>
+                    <div class="spec-val" id="genom-kategori">Struktural & Non-Struktural</div>
+                  </div>
+                </div>
+
+                <div id="mutasi-kunci-box" style="display: none; background: #0c1827; border: 1px solid #1e3a5f; padding: 1rem; border-radius: 0.5rem; margin-top: 0.75rem;">
+                  <h5 style="color: #38bdf8; font-size: 0.85rem; margin-bottom: 0.35rem;">Mutasi Kunci & Signifikansi Klinis:</h5>
+                  <p id="mutasi-kunci-desc" style="font-size: 0.85rem; color: #cbd5e1;"></p>
+                </div>
+              </div>
+
+              <!-- TAB 3: PATOGENESIS -->
+              <div id="tab-pane-patogenesis" class="tab-content-pane">
+                <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">Tahapan Patogenesis Penyakit:</h4>
+                <div id="patogenesis-steps" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                  <!-- Dynamically populated -->
+                </div>
+
+                <!-- KOTAK KONTEKS INDONESIA (WAJIB) -->
+                <div class="indo-box">
+                  <div class="indo-box-header">
+                    <span>🇮🇩</span>
+                    <span>Kotak Konteks Indonesia & Data Epidemiologi Terverifikasi</span>
+                  </div>
+                  <p id="indo-context-text" style="font-size: 0.875rem; color: #ecfdf5; line-height: 1.65;"></p>
+                </div>
+              </div>
+
+              <!-- TAB 4: REPLIKASI -->
+              <div id="tab-pane-replikasi" class="tab-content-pane">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <h4 style="font-size: 0.95rem;">Tahapan Siklus Replikasi Virion:</h4>
+                  <span id="replikasi-siklus-badge" class="chip chip-accent">Siklus Litik</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+                  Inang Target: <strong id="replikasi-inang" style="color: #fff;">-</strong>
+                </div>
+
+                <div id="replikasi-steps" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                  <!-- Steps populated dynamically -->
+                </div>
+
+                <!-- KALIMAT SIMPULAN LKM (WAJIB) -->
+                <div class="lkm-box">
+                  <div class="lkm-header">
+                    <div style="display: flex; align-items: center; gap: 0.4rem;">
+                      <span>📝</span>
+                      <span>Simpulan untuk LKM (Lembar Kerja Mandiri Siswa)</span>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="copyLKMText()" id="btnCopyLKM">
+                      📋 Salin Teks
+                    </button>
+                  </div>
+                  <p id="lkm-summary-text" style="font-size: 0.875rem; color: #fef3c7; line-height: 1.6; font-style: italic;"></p>
+                </div>
+              </div>
+
+              <!-- TAB 5: UKURAN RELATIF -->
+              <div id="tab-pane-ukuran" class="tab-content-pane">
+                <div style="margin-bottom: 1rem;">
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.35rem;">Perbandingan Skala Ukuran Relatif 10 Virus</h4>
+                  <p style="font-size: 0.825rem; color: var(--text-muted);">
+                    Semua dimensi digambarkan dalam perbandingan proporsional terhadap garis referensi batang 100 nm.
+                  </p>
+                </div>
+
+                <!-- Scale Chart Container -->
+                <div style="background: #090e17; border: 1px solid var(--border-subtle); border-radius: 0.75rem; padding: 1.5rem; position: relative;">
+                  <!-- Reference 100 nm line -->
+                  <div style="position: absolute; top: 1.5rem; left: 160px; right: 2rem; border-top: 2px dashed #38bdf8; z-index: 5;">
+                    <span style="position: absolute; right: 0; top: -20px; font-size: 0.75rem; color: #38bdf8; font-weight: 700; font-family: var(--font-mono);">
+                      Garis Referensi 100 nm
+                    </span>
+                  </div>
+
+                  <div id="size-chart-bars" style="display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1rem;">
+                    <!-- Generated dynamically -->
+                  </div>
+                </div>
+
+                <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-dim); font-style: italic;">
+                  Sumber ukuran: ICTV Virus Taxonomy; Kuhn et al. 2002 (Dengue); Fooks et al. 2017 (Rabies); ICTV Papillomaviridae (HPV); Namba & Stubbs 1986 (TMV); ICTV Adenoviridae (Adeno).
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- MINI-GAME: "SIAPA AKU?" -->
+        <div class="game-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-joyful">🎮 Mini-Game</span>
+              <h4 style="font-size: 1.05rem;">Tebak Virus: "Siapa Aku?"</h4>
+            </div>
+            <div style="font-size: 0.85rem; color: #fbbf24; font-weight: 700;">
+              Skor Mini-Game: <span id="game-score-display">0</span> Poin
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Tebak nama virus berdasarkan petunjuk bertahap. Semakin cepat kamu menebak di petunjuk awal, semakin tinggi poin yang didapat! (5 poin petunjuk 1 → 1 poin petunjuk 5).
+          </p>
+
+          <div id="game-card-content" style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+            <div id="clue-list" style="display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem;">
+              <!-- Clues injected here -->
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;" id="game-guess-buttons">
+              <!-- Virus choice buttons -->
+            </div>
+            <div id="game-feedback" style="margin-top: 0.75rem; font-size: 0.85rem; display: none;"></div>
+            <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+              <button class="btn btn-secondary btn-sm" id="btn-next-clue" onclick="nextClue()">Petunjuk Selanjutnya</button>
+              <button class="btn btn-secondary btn-sm" onclick="initMiniGame()">Ganti Soal Virus</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASESMEN FORMATIF 1 (Bloom C4) -->
+        <div class="quiz-container" id="quiz1-wrapper">
+          <div class="quiz-header">
+            <div>
+              <span class="mmj-badge-tag tag-mindful">Asesmen Formatif 1</span>
+              <h3 style="font-size: 1.15rem; margin-top: 0.2rem;">Uji Pemahaman Karakteristik Virus (Bloom C4)</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">
+                Tuntaskan minimal 3/5 benar untuk membuka Badge 🔬 "Pengenal Virus"
+              </p>
+            </div>
+            <div style="font-size: 0.85rem; color: #38bdf8; font-weight: 700; font-family: var(--font-mono);">
+              Soal <span id="q1-num">1</span> / 5
+            </div>
+          </div>
+
+          <div id="q1-card">
+            <h4 id="q1-question" style="font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 1.25rem;">
+              <!-- Question text -->
+            </h4>
+
+            <div id="q1-options">
+              <!-- Option buttons -->
+            </div>
+
+            <div id="q1-feedback" class="quiz-feedback">
+              <!-- Explanation text -->
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem;">
+              <button class="btn btn-secondary btn-sm" id="btn-q1-prev" onclick="navQuiz1(-1)" disabled>← Sebelumnya</button>
+              <button class="btn btn-primary btn-sm" id="btn-q1-next" onclick="navQuiz1(1)">Selanjutnya →</button>
+            </div>
+          </div>
+
+          <div id="q1-result-box" style="display: none; text-align: center; padding: 1.5rem 0;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔬</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Asesmen Modul 1 Selesai!</h3>
+            <p id="q1-result-score" style="font-size: 1rem; color: #38bdf8; margin: 0.5rem 0 1rem 0;"></p>
+            <p id="q1-result-msg" style="font-size: 0.875rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem auto;"></p>
+            <button class="btn btn-secondary btn-sm" onclick="resetQuiz1()">Ulangi Asesmen</button>
+            <button class="btn btn-primary btn-sm" onclick="navigateTo('modul2')" style="margin-left: 0.5rem;">Lanjut ke Modul 2 →</button>
+          </div>
+        </div>
+
+        <!-- Footer Nav -->
+        <div class="module-nav-footer">
+          <button class="btn btn-secondary" onclick="navigateTo('landing')">
+            ← Kembali ke Beranda
+          </button>
+          <button class="btn btn-primary" onclick="navigateTo('modul2')">
+            Lanjut ke Modul 2: Siklus Replikasi →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: MODUL 2 — SIKLUS REPLIKASI VIRUS -->
+    <!-- ========================================== -->
+    <section id="section-modul2" class="spa-section">
+      <div class="container">
+        <!-- Metadata Bar -->
+        <div class="modul-meta-bar">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #38bdf8;">MODUL 2 DARI 4</span>
+            <h2 style="font-size: 1.45rem; font-weight: 800; margin-top: 0.2rem;">Siklus Replikasi Virus (Litik vs Lisogenik)</h2>
+          </div>
+          <div class="meta-badges">
+            <span class="chip chip-accent">TP 1 · Bloom C3–C4 (Apply & Analyze)</span>
+            <span class="chip" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">
+              Target Badge: 🧬 Analis Replikasi
+            </span>
+          </div>
+        </div>
+
+        <!-- MMJ Mindful Card -->
+        <div class="mmj-card mmj-mindful" id="m2-mindful-card">
+          <div class="mmj-badge-tag tag-mindful">🧠 MMJ — Mindful Thinking: Pause & Think</div>
+          <p style="font-size: 0.95rem; font-style: italic; color: #e2e8f0; font-weight: 500; margin-bottom: 0.75rem;">
+            "Sebelum melihat animasi, tuliskan prediksimu dalam benak: apa yang sebenarnya terjadi dengan DNA sel inang saat materi genetik virus masuk? Apa perbedaan paling mendasar antara virus yang langsung menghancurkan sel vs virus yang 'bersembunyi'?"
+          </p>
+          <button class="btn btn-primary btn-sm" onclick="acknowledgeM2Mindful()" id="btn-m2-mindful">
+            Saya Sudah Berpikir → Lihat Animasi Siklus
+          </button>
+        </div>
+
+        <!-- MMJ Meaningful Card -->
+        <div class="mmj-card mmj-meaningful">
+          <div class="mmj-badge-tag tag-meaningful">🫁 MMJ — Meaningful Context (COVID-19 & HIV)</div>
+          <p style="font-size: 0.92rem; color: #d1fae5; line-height: 1.65;">
+            "COVID-19 menginfeksi sel paru manusia (pneumosit tipe II yang memiliki reseptor ACE2), membajak ribosom sitoplasma untuk segera menyintesis ribuan virion baru hingga sel lisis. Sebaliknya, HIV menyisipkan DNA-nya secara licik ke dalam genom sel CD4+ limfosit sebagai provirus, tertidur selama bertahun-tahun sebelum akhirnya teraktivasi menjadi siklus litik mematikan."
+          </p>
+        </div>
+
+        <!-- JOYFUL: ANIMASI DUA SIKLUS -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-joyful">✨ MMJ — Joyful Animation</span>
+              <h3 style="font-size: 1.15rem;">Animasi Interaktif Replikasi (Litik & Lisogenik)</h3>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary btn-sm" id="btn-tab-litik" onclick="switchCycleModel('litik')">Siklus Litik (Model: Fag T4)</button>
+              <button class="btn btn-secondary btn-sm" id="btn-tab-lisogenik" onclick="switchCycleModel('lisogenik')">Siklus Lisogenik (Model: HIV)</button>
+            </div>
+          </div>
+
+          <!-- Model 1: Siklus Litik (Fag T4, 7 Tahap) -->
+          <div id="cycle-litik-pane">
+            <div style="display: grid; grid-template-columns: minmax(320px, 420px) 1fr; gap: 1.5rem; align-items: center;">
+              <!-- Dynamic SVG Stage Viewer -->
+              <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.75rem; padding: 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px;">
+                <div id="litik-svg-viewport" style="width: 100%; height: 260px; display: flex; align-items: center; justify-content: center;"></div>
+                <div style="font-size: 0.75rem; color: #38bdf8; font-family: var(--font-mono); font-weight: 700; margin-top: 0.5rem;" id="litik-step-pill">
+                  TAHAP 1 / 7
+                </div>
+              </div>
+
+              <!-- Controls and Step Info -->
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <span class="chip chip-accent" id="litik-title-badge">Tahap 1: Adsorbsi</span>
+                  <span style="font-size: 0.8rem; color: var(--text-dim);">Fag T4 & Bakteri E. coli</span>
+                </div>
+                <h3 id="litik-step-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff;">
+                  1. Adsorbsi (Penempelan Spesifik)
+                </h3>
+                <p id="litik-step-desc" style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; min-height: 90px;">
+                  Long tail fibers (serabut ekor panjang) Fag T4 mengenali reseptor lipopolisakarida (LPS) dan protein membran luar OmpC pada dinding sel bakteri Escherichia coli secara sangat spesifik.
+                </p>
+
+                <!-- Navigation Controls -->
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem;">
+                  <button class="btn btn-secondary btn-sm" onclick="navLitikStep(-1)" id="btn-litik-prev" disabled>← Kembali</button>
+                  <button class="btn btn-primary btn-sm" onclick="navLitikStep(1)" id="btn-litik-next">Lanjut Tahap Berikutnya →</button>
+                  <span style="font-size: 0.8rem; color: var(--text-dim); margin-left: auto;">Langkah <span id="litik-step-counter">1</span> dari 7</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 2: Siklus Lisogenik (HIV & Provirus) -->
+          <div id="cycle-lisogenik-pane" style="display: none;">
+            <div style="display: grid; grid-template-columns: minmax(320px, 420px) 1fr; gap: 1.5rem; align-items: center;">
+              <!-- Dynamic SVG Stage Viewer -->
+              <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.75rem; padding: 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px;">
+                <div id="lisogenik-svg-viewport" style="width: 100%; height: 260px; display: flex; align-items: center; justify-content: center;"></div>
+                <div style="font-size: 0.75rem; color: #fbbf24; font-family: var(--font-mono); font-weight: 700; margin-top: 0.5rem;" id="lisogenik-step-pill">
+                  TAHAP 1 / 7 · FASE INTEGRASI
+                </div>
+              </div>
+
+              <!-- Controls and Step Info -->
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                  <span class="chip chip-amber" id="lisogenik-phase-badge">Fase 1: Integrasi Provirus</span>
+                  <span style="font-size: 0.8rem; color: var(--text-dim);">HIV & Sel CD4+ Manusia</span>
+                </div>
+                <h3 id="lisogenik-step-title" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff;">
+                  1. Attachment & Fusi Membran
+                </h3>
+                <p id="lisogenik-step-desc" style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; min-height: 90px;">
+                  Glikoprotein gp120 permukaan amplop HIV mengenali reseptor CD4 dan koreseptor chemokine (CCR5/CXCR4) pada limfosit T manusia, memicu fusi membran via gp41 dan injeksi kapsid konik p24 ke sitosol.
+                </p>
+
+                <!-- Navigation Controls -->
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1.25rem; flex-wrap: wrap;">
+                  <button class="btn btn-secondary btn-sm" onclick="navLisogenikStep(-1)" id="btn-liso-prev" disabled>← Kembali</button>
+                  <button class="btn btn-primary btn-sm" onclick="navLisogenikStep(1)" id="btn-liso-next">Lanjut Tahap Berikutnya →</button>
+                  <button class="btn btn-emerald btn-sm" onclick="triggerReaktivasiLiso()" id="btn-liso-reactivate" style="display: none;">
+                    ⚡ Aktifkan Reaktivasi Litik (Fase 2)
+                  </button>
+                  <span style="font-size: 0.8rem; color: var(--text-dim); margin-left: auto;">Langkah <span id="liso-step-counter">1</span> dari 7</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOYFUL: DRAG & SORT ACTIVITY -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-joyful">🎮 Drag & Sort</span>
+              <h3 style="font-size: 1.15rem;">Klasifikasi Karakteristik: Litik vs Lisogenik</h3>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="resetDragActivity()">Reset Kartu</button>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Klik kartu di bawah ini untuk memilih kolom tujuannya (atau drag-and-drop langsung ke kolom). Buktikan pemahaman komparatifmu!
+          </p>
+
+          <div style="background: #090e17; border: 1px solid var(--border-subtle); border-radius: 0.5rem; padding: 0.85rem; margin-bottom: 1rem;">
+            <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase;">Bank Kartu Karakteristik:</span>
+            <div id="drag-source-cards" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+              <!-- Cards inserted dynamically -->
+            </div>
+          </div>
+
+          <div class="drag-grid">
+            <!-- Kolom Litik -->
+            <div class="drag-col" id="col-litik" ondragover="allowDrop(event)" ondrop="handleDrop(event, 'litik')">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong style="color: #38bdf8; font-size: 0.95rem;">💥 SIKLUS LITIK</strong>
+                <span class="chip chip-accent" id="count-litik">0 Item</span>
+              </div>
+              <div class="drop-target-area" id="target-litik" style="display: flex; flex-direction: column; gap: 0.4rem; min-height: 140px;"></div>
+            </div>
+
+            <!-- Kolom Lisogenik -->
+            <div class="drag-col" id="col-lisogenik" ondragover="allowDrop(event)" ondrop="handleDrop(event, 'lisogenik')">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong style="color: #fbbf24; font-size: 0.95rem;">🧬 SIKLUS LISOGENIK</strong>
+                <span class="chip chip-amber" id="count-lisogenik">0 Item</span>
+              </div>
+              <div class="drop-target-area" id="target-lisogenik" style="display: flex; flex-direction: column; gap: 0.4rem; min-height: 140px;"></div>
+            </div>
+
+            <!-- Kolom Keduanya -->
+            <div class="drag-col" id="col-keduanya" ondragover="allowDrop(event)" ondrop="handleDrop(event, 'keduanya')">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong style="color: #34d399; font-size: 0.95rem;">🔄 BERLAKU KEDUANYA</strong>
+                <span class="chip chip-green" id="count-keduanya">0 Item</span>
+              </div>
+              <div class="drop-target-area" id="target-keduanya" style="display: flex; flex-direction: column; gap: 0.4rem; min-height: 140px;"></div>
+            </div>
+          </div>
+
+          <div id="drag-feedback-box" style="margin-top: 1rem; display: none; padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.85rem;"></div>
+        </div>
+
+        <!-- PERTANYAAN ANALISIS KAUSAL WAJIB (BLOOM C4) -->
+        <div style="background: linear-gradient(145deg, #0d1e30, #091522); border: 1px solid #1e3a5f; border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="mmj-badge-tag tag-mindful">Analisis Kausal Wajib (Bloom C4)</span>
+          </div>
+          <h4 style="font-size: 1.05rem; line-height: 1.5; color: #fff; margin-bottom: 0.75rem;">
+            "Mengapa HIV menggunakan siklus lisogenik sebagai strategi utama infeksinya? Kaitkan dengan karakteristik sel target CD4+ dan sistem imun manusia. Mengapa strategi ini jauh lebih 'menguntungkan' bagi kelangsungan hidup HIV dibanding langsung litik?"
+          </h4>
+          <textarea id="causal-essay-m2" placeholder="Tuliskan analisis ilmiahmu di sini (kaitkan peran sel CD4+ sebagai koordinator sistem imun dan bagaimana provirus bersembunyi dari deteksi sel sitotoksik)..." style="width: 100%; min-height: 110px; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.85rem; color: #f8fafc; font-family: inherit; font-size: 0.875rem; line-height: 1.6; resize: vertical; margin-bottom: 0.75rem;"></textarea>
+          <button class="btn btn-secondary btn-sm" onclick="submitCausalEssayM2()">Tampilkan Pembahasan Ilmiah Dosen Virologi</button>
+          
+          <div id="causal-essay-feedback" style="display: none; margin-top: 1rem; background: rgba(56, 189, 248, 0.1); border: 1px solid #38bdf8; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #e0f2fe; line-height: 1.6;">
+            <strong>Pembahasan Ilmiah (Kunci Telaah C4):</strong> Sel CD4+ T-limfosit adalah "jenderal" pengatur respons imun adaptif manusia. Jika HIV langsung melisiskan seluruh sel CD4+ secara litik cepat, tubuh inang akan langsung mati dalam hitungan minggu (inang mati = virus ikut musnah tanpa kesempatan transmisi luas). Dengan siklus lisogenik, DNA provirus berintegrasi ke genom sel T memori yang berumur sangat panjang dan ikut membelah saat sel inang membelah tanpa menghasilkan protein asing di permukaan sel. Hal ini membuat HIV sama sekali tidak terdeteksi oleh limfosit T sitotoksik (CD8+) maupun antibodi, memungkinkan virus bertahan laten hingga puluhan tahun dan menjamin penularan horizontal ke inang baru.
+          </div>
+        </div>
+
+        <!-- ASESMEN FORMATIF 2 (Bloom C3–C4) -->
+        <div class="quiz-container" id="quiz2-wrapper">
+          <div class="quiz-header">
+            <div>
+              <span class="mmj-badge-tag tag-mindful">Asesmen Formatif 2</span>
+              <h3 style="font-size: 1.15rem; margin-top: 0.2rem;">Evaluasi Siklus Replikasi Virus (Bloom C3–C4)</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">
+                Tuntaskan minimal 3/5 benar untuk membuka Badge 🧬 "Analis Replikasi"
+              </p>
+            </div>
+            <div style="font-size: 0.85rem; color: #10b981; font-weight: 700; font-family: var(--font-mono);">
+              Soal <span id="q2-num">1</span> / 5
+            </div>
+          </div>
+
+          <div id="q2-card">
+            <h4 id="q2-question" style="font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 1.25rem;">
+              <!-- Question text -->
+            </h4>
+
+            <div id="q2-options">
+              <!-- Option buttons -->
+            </div>
+
+            <div id="q2-feedback" class="quiz-feedback">
+              <!-- Explanation text -->
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem;">
+              <button class="btn btn-secondary btn-sm" id="btn-q2-prev" onclick="navQuiz2(-1)" disabled>← Sebelumnya</button>
+              <button class="btn btn-primary btn-sm" id="btn-q2-next" onclick="navQuiz2(1)">Selanjutnya →</button>
+            </div>
+          </div>
+
+          <div id="q2-result-box" style="display: none; text-align: center; padding: 1.5rem 0;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧬</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Asesmen Modul 2 Selesai!</h3>
+            <p id="q2-result-score" style="font-size: 1rem; color: #34d399; margin: 0.5rem 0 1rem 0;"></p>
+            <p id="q2-result-msg" style="font-size: 0.875rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem auto;"></p>
+            <button class="btn btn-secondary btn-sm" onclick="resetQuiz2()">Ulangi Asesmen</button>
+            <button class="btn btn-primary btn-sm" onclick="navigateTo('modul3')" style="margin-left: 0.5rem;">Lanjut ke Modul 3 →</button>
+          </div>
+        </div>
+
+        <!-- Footer Nav -->
+        <div class="module-nav-footer">
+          <button class="btn btn-secondary" onclick="navigateTo('modul1')">
+            ← Modul 1: Karakteristik Virus
+          </button>
+          <button class="btn btn-primary" onclick="navigateTo('modul3')">
+            Lanjut ke Modul 3: Peranan Virus →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: MODUL 3 — PERANAN VIRUS         -->
+    <!-- ========================================== -->
+    <section id="section-modul3" class="spa-section">
+      <div class="container">
+        <!-- Metadata Bar -->
+        <div class="modul-meta-bar">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #34d399;">MODUL 3 DARI 4</span>
+            <h2 style="font-size: 1.45rem; font-weight: 800; margin-top: 0.2rem;">Peranan Virus dalam Kehidupan</h2>
+          </div>
+          <div class="meta-badges">
+            <span class="chip chip-green">Indikator Penghubung TP1→TP2 · Bloom C2</span>
+            <span class="chip" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
+              Target Badge: 🌐 Ahli Ekologi Virus
+            </span>
+          </div>
+        </div>
+
+        <!-- MMJ Mindful Card (Jurnal Refleksi Mini) -->
+        <div class="mmj-card mmj-mindful">
+          <div class="mmj-badge-tag tag-mindful">🧠 MMJ — Mindful: Jurnal Refleksi Mini</div>
+          <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 0.75rem;">
+            "Tuliskan satu jenis virus yang pernah kamu atau keluargamu alami (misal: Influenza, Dengue/DBD, Cacar Air, COVID-19). Apa yang kamu rasakan saat itu? Apa yang ingin kamu ketahui lebih lanjut tentang virus tersebut?"
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="text" id="jurnal-virus-input" placeholder="Tuliskan pengalamanmu di sini..." style="flex: 1; min-width: 260px; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.65rem 0.85rem; color: #fff; font-size: 0.85rem;">
+            <button class="btn btn-primary btn-sm" onclick="saveJurnalRefleksi()">Simpan di Catatan Refleksi</button>
+          </div>
+          <div id="jurnal-saved-alert" style="display: none; margin-top: 0.5rem; font-size: 0.8rem; color: #34d399;">
+            ✓ Refleksimu tersimpan dan akan dimunculkan kembali di Section Refleksi Akhir.
+          </div>
+        </div>
+
+        <!-- MMJ Meaningful: Peta Indonesia Interaktif -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-meaningful">🗺️ Peta Epidemiologi Indonesia</span>
+              <h3 style="font-size: 1.15rem;">Distribusi Patogen Virus di Kepulauan Nusantara</h3>
+            </div>
+            <!-- Filter Pills -->
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" onclick="filterMap('all')">Semua Kasus</button>
+              <button class="btn btn-secondary btn-sm" style="color: #f87171;" onclick="filterMap('dbd')">🔴 DBD (Kemenkes 2023)</button>
+              <button class="btn btn-secondary btn-sm" style="color: #fb923c;" onclick="filterMap('rabies')">🟠 Rabies Endemik</button>
+              <button class="btn btn-secondary btn-sm" style="color: #38bdf8;" onclick="filterMap('hiv')">🔵 ODHA Tersebar</button>
+              <button class="btn btn-secondary btn-sm" style="color: #c084fc;" onclick="filterMap('h5n1')">🟣 H5N1 Historis</button>
+            </div>
+          </div>
+
+          <!-- SVG Indonesia Map Container -->
+          <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.75rem; padding: 1.25rem; position: relative; overflow: hidden;">
+            <svg viewBox="0 0 880 340" style="width: 100%; height: auto; max-height: 380px;">
+              <!-- Simplified stylized Indonesian archipelago islands -->
+              <!-- Sumatera -->
+              <path d="M120,60 L200,150 L180,180 L110,90 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <!-- Jawa -->
+              <path d="M220,220 L380,240 L380,255 L220,235 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <!-- Kalimantan -->
+              <path d="M300,90 L400,80 L420,160 L320,170 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <!-- Sulawesi -->
+              <path d="M470,110 L510,90 L500,140 L530,170 L490,190 L470,140 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <!-- Bali & Nusa Tenggara -->
+              <path d="M390,245 L540,255 L540,265 L390,252 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <!-- Maluku -->
+              <path d="M570,120 L610,130 L600,180 L560,160 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <!-- Papua -->
+              <path d="M640,140 L780,140 L790,230 L660,220 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+
+              <!-- Interactive Data Hotspots -->
+              <!-- Jawa: DBD & Wolbachia -->
+              <circle class="map-province-dot" data-type="dbd" cx="300" cy="235" r="9" fill="#ef4444" onclick="showMapDetail('diy')">
+                <title>DIY Yogyakarta - Program Wolbachia NEJM 2021</title>
+              </circle>
+              <!-- Jawa Barat: DBD Kasus Tertinggi -->
+              <circle class="map-province-dot" data-type="dbd" cx="250" cy="228" r="10" fill="#ef4444" onclick="showMapDetail('jabar')">
+                <title>Jawa Barat - Kasus DBD Tahunan Tertinggi</title>
+              </circle>
+              <!-- NTT: Rabies KLB -->
+              <circle class="map-province-dot" data-type="rabies" cx="490" cy="255" r="11" fill="#f97316" onclick="showMapDetail('ntt')">
+                <title>NTT (Flores & Lembata) - KLB Rabies 2023</title>
+              </circle>
+              <!-- Bali: Rabies Endemik -->
+              <circle class="map-province-dot" data-type="rabies" cx="410" cy="248" r="9" fill="#f97316" onclick="showMapDetail('bali')">
+                <title>Bali - Wilayah Endemik Rabies</title>
+              </circle>
+              <!-- DKI Jakarta: ODHA & ARV -->
+              <circle class="map-province-dot" data-type="hiv" cx="240" cy="225" r="10" fill="#38bdf8" onclick="showMapDetail('dki')">
+                <title>DKI Jakarta - Cakupan Layanan ARV ODHA</title>
+              </circle>
+              <!-- Papua: ODHA Prevalensi -->
+              <circle class="map-province-dot" data-type="hiv" cx="720" cy="180" r="11" fill="#38bdf8" onclick="showMapDetail('papua')">
+                <title>Papua - Beban Epidemi HIV Populasi Umum</title>
+              </circle>
+              <!-- Sumatera Utara: H5N1 Historis -->
+              <circle class="map-province-dot" data-type="h5n1" cx="140" cy="90" r="9" fill="#a855f7" onclick="showMapDetail('sumut')">
+                <title>Sumatera Utara - Kluster Keluarga H5N1 2006</title>
+              </circle>
+              <!-- Banten: H5N1 Awal -->
+              <circle class="map-province-dot" data-type="h5n1" cx="225" cy="222" r="8" fill="#a855f7" onclick="showMapDetail('tangerang')">
+                <title>Tangerang Banten - Kasus Fatal H5N1 Pertama 2005</title>
+              </circle>
+            </svg>
+
+            <!-- Popup Detail Panel -->
+            <div id="map-info-popup" style="margin-top: 1rem; background: #0f172a; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem; display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                  <h4 id="map-popup-title" style="font-size: 1rem; font-weight: 700; color: #fff;">Nama Wilayah</h4>
+                  <p id="map-popup-category" style="font-size: 0.75rem; color: #38bdf8; font-weight: 600; text-transform: uppercase; margin-top: 0.1rem;"></p>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="document.getElementById('map-info-popup').style.display='none'">✕ Tutup</button>
+              </div>
+              <p id="map-popup-desc" style="font-size: 0.85rem; color: #cbd5e1; margin-top: 0.6rem; line-height: 1.6;"></p>
+              <div id="map-popup-source" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.4rem; font-style: italic;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NARASI STORY-BASED: "Rina dan DBD" -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-meaningful">📖 Story-Based Learning</span>
+              <h3 style="font-size: 1.15rem;">Perjalanan Infeksi: "Rina dan Virus Dengue"</h3>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Panel <span id="story-panel-num">1</span> / 6</span>
+          </div>
+
+          <div class="story-card" id="story-display-card">
+            <div style="display: grid; grid-template-columns: 80px 1fr; gap: 1.25rem; align-items: center;">
+              <div style="width: 75px; height: 75px; border-radius: 50%; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 2.2rem;" id="story-icon">
+                🦟
+              </div>
+              <div>
+                <span class="chip chip-accent" id="story-time-badge">Hari 0 · Pagi Hari</span>
+                <h4 id="story-panel-title" style="font-size: 1.15rem; margin: 0.35rem 0 0.5rem 0; color: #fff;">
+                  1. Gigitan Nyamuk di Yogyakarta
+                </h4>
+                <p id="story-panel-text" style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+                  Saat sedang belajar di sekolah di Yogyakarta, seekor nyamuk Aedes aegypti betina menggigit lengan Rina. Melalui air liurnya, nyamuk menginokulasi ribuan partikel virion Dengue langsung ke kapiler dermis kulit.
+                </p>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+              <button class="btn btn-secondary btn-sm" onclick="navStory(-1)" id="btn-story-prev" disabled>← Panel Sebelumnya</button>
+              <button class="btn btn-primary btn-sm" onclick="navStory(1)" id="btn-story-next">Lanjut Panel Berikutnya →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOYFUL: SORTER "MERUGIKAN ATAU MENGUNTUNGKAN?" -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-joyful">⚖️ Sorter Interaktif</span>
+              <h3 style="font-size: 1.15rem;">Klasifikasi Peran Virus: Merugikan vs Menguntungkan</h3>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="resetPerananSorter()">Reset Pilihan</button>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Virus tidak selamanya identik dengan malapetaka patogenik! Kelompokkan peran virus di bawah ini ke kategori yang tepat:
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+            <!-- Kolom Merugikan -->
+            <div style="background: #090e17; border: 1px solid #f43f5e; border-radius: 0.75rem; padding: 1rem;">
+              <h4 style="color: #fda4af; font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>☣️</span> Patogen Merugikan
+              </h4>
+              <div id="col-peran-rugi" style="display: flex; flex-direction: column; gap: 0.4rem; min-height: 180px;"></div>
+            </div>
+
+            <!-- Kolom Menguntungkan -->
+            <div style="background: #090e17; border: 1px solid #10b981; border-radius: 0.75rem; padding: 1rem;">
+              <h4 style="color: #6ee7b7; font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🌱</span> Aplikasi Menguntungkan
+              </h4>
+              <div id="col-peran-untung" style="display: flex; flex-direction: column; gap: 0.4rem; min-height: 180px;"></div>
+            </div>
+
+            <!-- Kolom Tergantung Konteks -->
+            <div style="background: #090e17; border: 1px solid #38bdf8; border-radius: 0.75rem; padding: 1rem;">
+              <h4 style="color: #7dd3fc; font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🔬</span> Kontekstual / Riset
+              </h4>
+              <div id="col-peran-konteks" style="display: flex; flex-direction: column; gap: 0.4rem; min-height: 180px;"></div>
+            </div>
+          </div>
+
+          <!-- Unassigned Pool -->
+          <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.85rem; margin-top: 1rem;">
+            <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700;">KLIK KARTU DI BAWAH INI UNTUK MEMINDAHKAN:</span>
+            <div id="peran-pool" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;"></div>
+          </div>
+        </div>
+
+        <!-- JEMBATAN STRUKTUR -> PERAN (WAJIB) -->
+        <div style="background: linear-gradient(145deg, #0d2218, #091711); border: 1px solid #1b4d36; border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span class="mmj-badge-tag tag-meaningful">Jembatan Kausal: Struktur → Peran</span>
+          </div>
+          <h4 style="font-size: 1.05rem; line-height: 1.5; color: #fff; margin-bottom: 0.75rem;">
+            "Berdasarkan karakteristik struktural virus yang sudah kamu pelajari di Modul 1, mengapa Dengue HANYA bisa menular melalui vektor nyamuk — tidak bisa melalui udara/droplet seperti Influenza? Kaitkan dengan protein E Dengue vs HA Influenza!"
+          </h4>
+          <textarea id="bridge-essay-m3" placeholder="Tuliskan jawaban logismu (bandingkan reseptor target protein E vs Hemagglutinin)..." style="width: 100%; min-height: 100px; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.85rem; color: #f8fafc; font-family: inherit; font-size: 0.875rem; line-height: 1.6; resize: vertical; margin-bottom: 0.75rem;"></textarea>
+          <button class="btn btn-secondary btn-sm" onclick="submitBridgeEssayM3()">Buka Pembahasan Komparatif</button>
+
+          <div id="bridge-essay-feedback" style="display: none; margin-top: 1rem; background: rgba(52, 211, 153, 0.1); border: 1px solid #10b981; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #d1fae5; line-height: 1.6;">
+            <strong>Kunci Pembahasan:</strong> Penularan virus sangat ditentukan oleh tropisme reseptor protein permukaannya. Spikula HA pada Influenza berikatan spesifik dengan asam sialat yang melimpah pada sel epitel saluran pernapasan atas dan bawah, sehingga virion yang dikeluarkan via batuk/bersin dapat langsung menginfeksi orang lain via droplet udara. Sebaliknya, protein E pada Dengue tidak memiliki kemampuan mengikat epitel saluran napas manusia; protein E berevolusi untuk berikatan dengan reseptor sel kelenjar ludah dan usus nyamuk Aedes serta reseptor DC-SIGN pada monosit manusia. Karena Dengue tidak bereplikasi di mukosa pernapasan dan berada di dalam aliran darah, virus memerlukan jarum suntik biologis (probosis nyamuk) untuk berpindah inang!
+          </div>
+        </div>
+
+        <!-- ASESMEN FORMATIF 3 (Bloom C2) -->
+        <div class="quiz-container" id="quiz3-wrapper">
+          <div class="quiz-header">
+            <div>
+              <span class="mmj-badge-tag tag-meaningful">Asesmen Formatif 3</span>
+              <h3 style="font-size: 1.15rem; margin-top: 0.2rem;">Evaluasi Peranan Virus dalam Kehidupan (Bloom C2)</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">
+                Tuntaskan minimal 3/5 benar untuk membuka Badge 🌐 "Ahli Ekologi Virus"
+              </p>
+            </div>
+            <div style="font-size: 0.85rem; color: #34d399; font-weight: 700; font-family: var(--font-mono);">
+              Soal <span id="q3-num">1</span> / 5
+            </div>
+          </div>
+
+          <div id="q3-card">
+            <h4 id="q3-question" style="font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 1.25rem;">
+              <!-- Question text -->
+            </h4>
+
+            <div id="q3-options">
+              <!-- Option buttons -->
+            </div>
+
+            <div id="q3-feedback" class="quiz-feedback">
+              <!-- Explanation text -->
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem;">
+              <button class="btn btn-secondary btn-sm" id="btn-q3-prev" onclick="navQuiz3(-1)" disabled>← Sebelumnya</button>
+              <button class="btn btn-primary btn-sm" id="btn-q3-next" onclick="navQuiz3(1)">Selanjutnya →</button>
+            </div>
+          </div>
+
+          <div id="q3-result-box" style="display: none; text-align: center; padding: 1.5rem 0;">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🌐</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Asesmen Modul 3 Selesai!</h3>
+            <p id="q3-result-score" style="font-size: 1rem; color: #34d399; margin: 0.5rem 0 1rem 0;"></p>
+            <p id="q3-result-msg" style="font-size: 0.875rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem auto;"></p>
+            <button class="btn btn-secondary btn-sm" onclick="resetQuiz3()">Ulangi Asesmen</button>
+            <button class="btn btn-primary btn-sm" onclick="navigateTo('modul4')" style="margin-left: 0.5rem;">Lanjut ke Modul 4 →</button>
+          </div>
+        </div>
+
+        <!-- Footer Nav -->
+        <div class="module-nav-footer">
+          <button class="btn btn-secondary" onclick="navigateTo('modul2')">
+            ← Modul 2: Siklus Replikasi
+          </button>
+          <button class="btn btn-primary" onclick="navigateTo('modul4')">
+            Lanjut ke Modul 4: Evaluasi Solusi →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: MODUL 4 — EVALUASI SOLUSI       -->
+    <!-- ========================================== -->
+    <section id="section-modul4" class="spa-section">
+      <div class="container">
+        <!-- Metadata Bar -->
+        <div class="modul-meta-bar">
+          <div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: #f59e0b;">MODUL 4 DARI 4</span>
+            <h2 style="font-size: 1.45rem; font-weight: 800; margin-top: 0.2rem;">Evaluasi Solusi Pencegahan Penyebaran Virus</h2>
+          </div>
+          <div class="meta-badges">
+            <span class="chip chip-amber">TP 2 · Bloom C5 (Evaluate)</span>
+            <span class="chip" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">
+              Target Badge: 🏅 Epidemiolog Muda
+            </span>
+          </div>
+        </div>
+
+        <!-- MMJ Mindful Card -->
+        <div class="mmj-card mmj-mindful">
+          <div class="mmj-badge-tag tag-mindful">🧠 MMJ — Mindful: Refleksi Kebijakan Publik</div>
+          <p style="font-size: 0.95rem; font-style: italic; color: #e2e8f0; font-weight: 500;">
+            "Apakah vaksin saja sudah cukup untuk mencegah seluruh potensi pandemi? Luangkan waktu sejenak untuk memikirkan dua argumen MENDUKUNG dan dua argumen MENOLAK pernyataan ini sebelum membaca telaah artikel ilmiah di bawah!"
+          </p>
+        </div>
+
+        <!-- MMJ Meaningful: 3 Mini-Artikel Ilmiah Terverifikasi -->
+        <div style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📚</span> 3 Mini-Artikel Ilmiah Berbasis Bukti (Evidence-Based Virology)
+          </h3>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+            <!-- Artikel 1: Wolbachia -->
+            <div style="background: #0f172a; border: 1px solid #10b981; border-radius: 0.75rem; padding: 1.25rem; display: flex; flex-direction: column;">
+              <span class="chip chip-green" style="align-self: flex-start; margin-bottom: 0.5rem;">Artikel 1 · Pendekatan Biologis</span>
+              <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">
+                Wolbachia: Efikasi Pengendalian Transmisi Vektor di Yogyakarta
+              </h4>
+              <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; flex: 1;">
+                Uji coba terkontrol acak (AWED Trial) di Kota Yogyakarta oleh Prof. Adi Utarini dkk. (2021) melepaskan nyamuk <em>Aedes aegypti</em> yang ber-Wolbachia strain wMel. Bakteri endosimbion Wolbachia bersaing memperebutkan molekul lipid intraseluler dengan virus Dengue di dalam tubuh nyamuk sehingga virion Dengue gagal bereplikasi. Hasil uji menunjukkan <strong>penurunan kasus DBD sebesar 77%</strong> dan <strong>penurunan angka rawat inap rumah sakit sebesar 86%</strong> di klaster intervensi dibanding kontrol tanpa intervensi.
+              </p>
+              <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.725rem; color: #34d399; font-family: monospace;">
+                Sumber: Utarini, A., et al. (2021). NEJM 384(23), 2177–2186. DOI: 10.1056/NEJMoa2030243.
+              </div>
+            </div>
+
+            <!-- Artikel 2: Vaksinasi COVID-19 -->
+            <div style="background: #0f172a; border: 1px solid #38bdf8; border-radius: 0.75rem; padding: 1.25rem; display: flex; flex-direction: column;">
+              <span class="chip chip-accent" style="align-self: flex-start; margin-bottom: 0.5rem;">Artikel 2 · Pendekatan Imunologis</span>
+              <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">
+                Vaksinasi: Efikasi Spike Protein & Tantangan Mutasi Varian Baru
+              </h4>
+              <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; flex: 1;">
+                Vaksinasi berbasis Spike protein (platform mRNA, vektor adenovirus, dan virus inaktif) berhasil memicu antibodi IgG netralisasi serta sel limfosit T memori di Indonesia. Data Kementerian Kesehatan RI (2022) mengonfirmasi pemberian dua dosis primer dan booster mereduksi risiko hospitalisasi berat dan mortalitas >85%. Namun, munculnya mutasi titik pada domain pengikat reseptor (seperti <strong>E484K</strong> yang menurunkan netralisasi antibodi dan <strong>N501Y</strong> yang meningkatkan afinitas ACE2) memicu immune evasion parsial, menuntut pembaruan formula vaksin secara berkala.
+              </p>
+              <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.725rem; color: #38bdf8; font-family: monospace;">
+                Sumber: Kemenkes RI (2022). Laporan Efektivitas Vaksinasi; WHO (2021). COVID-19 Vaccine Studies.
+              </div>
+            </div>
+
+            <!-- Artikel 3: Fogging vs Larvasida -->
+            <div style="background: #0f172a; border: 1px solid #f59e0b; border-radius: 0.75rem; padding: 1.25rem; display: flex; flex-direction: column;">
+              <span class="chip chip-amber" style="align-self: flex-start; margin-bottom: 0.5rem;">Artikel 3 · Pendekatan Fisik-Kimia</span>
+              <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem;">
+                Fogging vs Larvasida: Respons Wabah vs Pencegahan Berkelanjutan
+              </h4>
+              <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; flex: 1;">
+                Fogging (pengasapan insektisida termal) membunuh nyamuk dewasa yang terbang terpapar insektisida saat itu juga, namun <strong>sama sekali tidak mematikan jentik/larva di air</strong> dan residunya cepat hilang ditiup angin. WHO (2012) menegaskan fogging hanya sebagai intervensi darurat saat KLB meledak. Sebaliknya, larvasida (temephos/abate) yang dibubuhkan pada penampungan air bersama gerakan 3M Plus memutus siklus hidup vektor sejak stadium akuatik, menghasilkan proteksi populasi nyamuk yang jauh lebih berkelanjutan.
+              </p>
+              <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.725rem; color: #fbbf24; font-family: monospace;">
+                Sumber: WHO (2012). Global Strategy for Dengue Prevention 2012–2020. Geneva: WHO Press.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCAFFOLD CER (CLAIM-EVIDENCE-REASONING) INTERAKTIF -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-mindful">Scaffold Ilmiah CER</span>
+              <h3 style="font-size: 1.15rem;">Kerangka Argumen: Claim – Evidence – Reasoning</h3>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-dim);">Pilih artikel yang ingin kamu telaah:</span>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; overflow-x: auto;">
+            <button class="btn btn-secondary btn-sm" id="btn-cer-1" onclick="switchCERArticle(1)">1. Wolbachia (Utarini 2021)</button>
+            <button class="btn btn-secondary btn-sm" id="btn-cer-2" onclick="switchCERArticle(2)">2. Vaksinasi & Mutasi</button>
+            <button class="btn btn-secondary btn-sm" id="btn-cer-3" onclick="switchCERArticle(3)">3. Fogging vs Larvasida</button>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label style="font-size: 0.85rem; font-weight: 700; color: #38bdf8; display: block; margin-bottom: 0.35rem;">
+                C (Claim / Klaim Utama):
+              </label>
+              <input type="text" id="cer-claim-input" placeholder="Tuliskan klaim utama dari strategi ini..." style="width: 100%; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.65rem 0.85rem; color: #fff; font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <label style="font-size: 0.85rem; font-weight: 700; color: #34d399; display: block; margin-bottom: 0.35rem;">
+                E (Evidence / Bukti Data Numerik):
+              </label>
+              <input type="text" id="cer-evidence-input" placeholder="Sebutkan data numerik / persentase efektivitas yang tercantum pada artikel..." style="width: 100%; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.65rem 0.85rem; color: #fff; font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <label style="font-size: 0.85rem; font-weight: 700; color: #fbbf24; display: block; margin-bottom: 0.35rem;">
+                R (Reasoning / Penalaran Ilmiah Kausal):
+              </label>
+              <textarea id="cer-reasoning-input" placeholder="Jelaskan MENGAPA bukti data tersebut dapat terjadi secara biologis..." style="width: 100%; min-height: 80px; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.65rem 0.85rem; color: #fff; font-size: 0.85rem; line-height: 1.5;"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-primary btn-sm" onclick="evaluateCER()">Periksa Konstruksi Argumen CER</button>
+            </div>
+            <div id="cer-eval-feedback" style="display: none; padding: 0.85rem; border-radius: 0.5rem; font-size: 0.85rem; line-height: 1.5;"></div>
+          </div>
+        </div>
+
+        <!-- JOYFUL: SIMULASI "JADI EPIDEMIOLOG" (KURVA SIR INTERAKTIF) -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="mmj-badge-tag tag-joyful">🎮 Simulasi Interaktif</span>
+              <h3 style="font-size: 1.15rem;">Simulasi Jadi Epidemiolog: "Wabah DBD Kota Yogyakarta"</h3>
+            </div>
+            <div style="font-size: 0.9rem; font-weight: 700; color: #38bdf8; background: #090e17; padding: 0.4rem 0.85rem; border-radius: 9999px; border: 1px solid var(--border-accent);">
+              Sisa Anggaran: <span id="sim-budget-display">100</span> / 100 Poin
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            <strong>Skenario Krisis:</strong> Terjadi ledakan 500 kasus baru DBD per minggu di Kota Yogyakarta. Alokasikan total 100 poin anggaran ke strategi intervensi di bawah ini. Kurva epidemiologi dinamis akan menampilkan konsekuensi nyata: tidak ada strategi tunggal yang sempurna!
+          </p>
+
+          <!-- Strategy Sliders / Toggles -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <!-- Fogging Massal -->
+            <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fff; font-size: 0.85rem;">1. Fogging Massal</strong>
+                <span class="chip chip-amber">30 Poin</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.6rem;">Kurva turun instan, namun berisiko rebound tinggi dalam 2 minggu.</p>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.825rem; cursor: pointer;">
+                <input type="checkbox" id="sim-toggle-fogging" onchange="updateSimulation()" style="width: 16px; height: 16px;">
+                <span>Aktifkan Intervensi Fogging</span>
+              </label>
+            </div>
+
+            <!-- Larvasida & 3M Plus -->
+            <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fff; font-size: 0.85rem;">2. Larvasida + 3M Plus</strong>
+                <span class="chip chip-green">20 Poin</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.6rem;">Kurva turun stabil jangka menengah, memutus jentik di penampungan.</p>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.825rem; cursor: pointer;">
+                <input type="checkbox" id="sim-toggle-larva" onchange="updateSimulation()" style="width: 16px; height: 16px;">
+                <span>Aktifkan Larvasida Abate</span>
+              </label>
+            </div>
+
+            <!-- Vaksin DBD -->
+            <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fff; font-size: 0.85rem;">3. Vaksinasi DBD</strong>
+                <span class="chip chip-accent">40 Poin</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.6rem;">Perlindungan individu efektif, biaya tinggi & butuh kepatuhan 2 dosis.</p>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.825rem; cursor: pointer;">
+                <input type="checkbox" id="sim-toggle-vaksin" onchange="updateSimulation()" style="width: 16px; height: 16px;">
+                <span>Alokasikan Vaksin DBD</span>
+              </label>
+            </div>
+
+            <!-- Wolbachia Deployment -->
+            <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fff; font-size: 0.85rem;">4. Pelepasan Wolbachia</strong>
+                <span class="chip" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">50 Poin</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.6rem;">Efek terlihat setelah 3 bulan pembiakan, namun proteksi permanen 77%!</p>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.825rem; cursor: pointer;">
+                <input type="checkbox" id="sim-toggle-wolbachia" onchange="updateSimulation()" style="width: 16px; height: 16px;">
+                <span>Pelepasan Nyamuk Wolbachia</span>
+              </label>
+            </div>
+
+            <!-- Edukasi Masyarakat -->
+            <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <strong style="color: #fff; font-size: 0.85rem;">5. Edukasi Sanitasi</strong>
+                <span class="chip chip-amber">15 Poin</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.6rem;">Perubahan perilaku jangka panjang, penopang efektivitas larvasida.</p>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.825rem; cursor: pointer;">
+                <input type="checkbox" id="sim-toggle-edukasi" onchange="updateSimulation()" style="width: 16px; height: 16px;">
+                <span>Kampanye Edukasi Publik</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Dynamic SIR Graph Canvas / SVG -->
+          <div style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.75rem; padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h4 style="font-size: 0.95rem; color: #fff;">Kurva Proyeksi Epidemi Kasus DBD (16 Minggu ke Depan)</h4>
+              <div style="display: flex; gap: 0.75rem; font-size: 0.75rem;">
+                <span style="color: #ef4444;">● Kasus Terinfeksi (Infected)</span>
+                <span style="color: #38bdf8;">● Populasi Rentan (Susceptible)</span>
+                <span style="color: #10b981;">● Sembuh & Terlindungi (Recovered)</span>
+              </div>
+            </div>
+
+            <div style="width: 100%; height: 200px;" id="sim-graph-container">
+              <!-- SVG Curve Rendered Dynamically -->
+            </div>
+
+            <!-- Outcome Analysis Box -->
+            <div id="sim-outcome-box" style="margin-top: 1rem; background: #0f172a; border-left: 4px solid #38bdf8; padding: 0.85rem; border-radius: 0 0.5rem 0.5rem 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+              <!-- Outcome text -->
+            </div>
+          </div>
+        </div>
+
+        <!-- MATRIKS RUBRIK EVALUASI 5 STRATEGI × 5 KRITERIA (BLOOM C5) -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📋</span> Matriks Evaluasi Solusi Pencegahan (Bloom C5)
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Tinjau matriks komparatif 5 strategi intervensi berdasarkan 5 kriteria virologi klinis & kesehatan masyarakat:
+          </p>
+
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.825rem; text-align: left;">
+              <thead>
+                <tr style="background: #1e293b; color: #38bdf8;">
+                  <th style="padding: 0.75rem; border: 1px solid var(--border-accent);">Strategi Solusi</th>
+                  <th style="padding: 0.75rem; border: 1px solid var(--border-accent);">Kecepatan Efek</th>
+                  <th style="padding: 0.75rem; border: 1px solid var(--border-accent);">Cakupan Populasi</th>
+                  <th style="padding: 0.75rem; border: 1px solid var(--border-accent);">Bukti Ilmiah (Evidence)</th>
+                  <th style="padding: 0.75rem; border: 1px solid var(--border-accent);">Kelayakan Konteks RI</th>
+                  <th style="padding: 0.75rem; border: 1px solid var(--border-accent);">Keterbatasan / Risiko</th>
+                </tr>
+              </thead>
+              <tbody style="color: #cbd5e1;">
+                <tr>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); font-weight: 700; color: #fff;">1. Wolbachia Deployment</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Lambat (3-6 bln penyebaran)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Sangat Luas (seluruh kota)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #34d399;">Sangat Tinggi (NEJM 2021: 77% turun)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Tinggi (Yogyakarta sukses, ekspansi 5 kota)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Butuh penerimaan publik & waktu berkembang biak</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); font-weight: 700; color: #fff;">2. Vaksinasi Nasional</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Sedang (2-4 mggu antibodi)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Tergantung distribusi faskes</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #34d399;">Tinggi (Uji klinis fase III)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Sedang (Terkendala cold-chain pulau terluar)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Penurunan netralisasi akibat mutasi Spike/E</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); font-weight: 700; color: #fff;">3. Fogging Massal</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #38bdf8;">Sangat Cepat (hitungan jam)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Terbatas (radius 100-200m)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #f59e0b;">Rendah pencegahan (WHO 2012: darurat saja)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Tinggi (Populer di masyarakat)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #f43f5e;">Resistensi insektisida, jentik tetap hidup!</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); font-weight: 700; color: #fff;">4. Larvasida + 3M Plus</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Sedang (1-2 minggu)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Berbasis rumah tangga</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #34d399;">Tinggi memutus stadium akuatik</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Sangat Tinggi (Biaya murah abate)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Menuntut konsistensi kader Jumantik & warga</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); font-weight: 700; color: #fff;">5. Edukasi Sanitasi</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Paling Lambat</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Menyeluruh (kultural)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle); color: #34d399;">Krusial sebagai penopang intervensi lain</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Sangat Tinggi (Kearifan lokal gotong royong)</td>
+                  <td style="padding: 0.75rem; border: 1px solid var(--border-subtle);">Membutuhkan waktu mengubah kebiasaan hidup</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: 1.25rem; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 1rem;">
+            <label style="font-size: 0.875rem; font-weight: 700; color: #38bdf8; display: block; margin-bottom: 0.4rem;">
+              Pertanyaan Evaluasi Mandiri (C5): "Strategi mana yang paling efektif untuk konteks Yogyakarta? Berikan 2 bukti dari artikel yang mendukung keputusanmu!"
+            </label>
+            <textarea id="eval-c5-essay" placeholder="Tuliskan evaluasimu dengan menyertakan data angka dari studi Utarini et al. (2021) atau WHO (2012)..." style="width: 100%; min-height: 85px; background: #0f172a; border: 1px solid var(--border-accent); border-radius: 0.4rem; padding: 0.75rem; color: #fff; font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.5rem;"></textarea>
+            <button class="btn btn-secondary btn-sm" onclick="saveC5Evaluation()">Simpan Argumen Evaluasi</button>
+            <span id="eval-c5-alert" style="font-size: 0.8rem; color: #34d399; margin-left: 0.75rem; display: none;">✓ Argumen evaluasimu telah direkam!</span>
+          </div>
+        </div>
+
+        <!-- ASESMEN SUMATIF KOMPREHENSIF (10 SOAL BLOOM C4+C5) -->
+        <div class="quiz-container" id="quiz-sumatif-wrapper">
+          <div class="quiz-header">
+            <div>
+              <span class="chip chip-amber" style="margin-bottom: 0.4rem; display: inline-block;">Asesmen Sumatif Akhir</span>
+              <h3 style="font-size: 1.25rem; margin-top: 0.2rem;">Uji Kompetensi Epidemiologi & Virologi Lanjut (10 Soal C4–C5)</h3>
+              <p style="font-size: 0.825rem; color: var(--text-muted);">
+                Selesaikan 10 butir soal integratif Modul 1–4 untuk meraih <strong>Badge 🏅 "Epidemiolog Muda"</strong>
+              </p>
+            </div>
+            <div style="font-size: 0.95rem; color: #fbbf24; font-weight: 700; font-family: var(--font-mono);">
+              Soal <span id="qsum-num">1</span> / 10
+            </div>
+          </div>
+
+          <div id="qsum-card">
+            <h4 id="qsum-question" style="font-size: 1.05rem; font-weight: 600; line-height: 1.55; margin-bottom: 1.25rem;">
+              <!-- Question text -->
+            </h4>
+
+            <div id="qsum-options">
+              <!-- Option buttons -->
+            </div>
+
+            <div id="qsum-feedback" class="quiz-feedback">
+              <!-- Explanation text -->
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem;">
+              <button class="btn btn-secondary btn-sm" id="btn-qsum-prev" onclick="navQuizSum(-1)" disabled>← Sebelumnya</button>
+              <button class="btn btn-primary btn-sm" id="btn-qsum-next" onclick="navQuizSum(1)">Selanjutnya →</button>
+            </div>
+          </div>
+
+          <div id="qsum-result-box" style="display: none; text-align: center; padding: 2rem 1rem;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;" id="qsum-medal-icon">🏅</div>
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff;" id="qsum-result-title">Hasil Asesmen Sumatif</h3>
+            <p id="qsum-result-score" style="font-size: 1.15rem; color: #38bdf8; font-weight: 700; margin: 0.5rem 0 1rem 0;"></p>
+            <div id="qsum-result-feedback-tier" style="background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.75rem; padding: 1.25rem; max-width: 600px; margin: 0 auto 1.5rem auto; text-align: left; font-size: 0.9rem; line-height: 1.6;"></div>
+            <div style="display: flex; justify-content: center; gap: 0.75rem;">
+              <button class="btn btn-secondary btn-sm" onclick="resetQuizSum()">Ulangi Asesmen</button>
+              <button class="btn btn-primary btn-sm" onclick="navigateTo('refleksi')">Lanjut ke Refleksi Akhir (Mindful) →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Nav -->
+        <div class="module-nav-footer">
+          <button class="btn btn-secondary" onclick="navigateTo('modul3')">
+            ← Modul 3: Peranan Virus
+          </button>
+          <button class="btn btn-primary" onclick="navigateTo('refleksi')">
+            Lanjut ke Refleksi Akhir →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: REFLEKSI AKHIR (MINDFUL)        -->
+    <!-- ========================================== -->
+    <section id="section-refleksi" class="spa-section">
+      <div class="container" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="chip chip-accent" style="margin-bottom: 0.5rem;">Penutup Perjalanan MMJ</span>
+          <h2 style="font-size: 2rem; font-weight: 800; color: #fff;">Refleksi Akhir: Menjadi Pembelajar Kritis</h2>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.5rem;">
+            "Kamu telah menyelesaikan perjalanan melalui 10 virus dan 4 modul biologi virologi SMA Kelas X Kurikulum Merdeka. Luangkan waktu untuk menjawab tiga pertanyaan refleksi di bawah ini:"
+          </p>
+        </div>
+
+        <!-- Perbandingan dengan Refleksi Awal -->
+        <div style="background: #090e17; border: 1px solid #1e3a5f; border-left: 4px solid #38bdf8; border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.75rem;">
+          <h4 style="font-size: 0.95rem; color: #38bdf8; margin-bottom: 0.35rem;">Pengingat Refleksi Awalmu (Modul 3):</h4>
+          <p id="refleksi-awal-display" style="font-size: 0.875rem; color: #e2e8f0; font-style: italic;">
+            "Belum ada catatan yang ditulis di Modul 3. Namun, bandingkan apa yang kamu rasakan sebelum mengenal biologi virus dengan apa yang kamu pahami sekarang!"
+          </p>
+        </div>
+
+        <!-- 3 Refleksi Akhir Inputs -->
+        <div style="background: #0f172a; border: 1px solid var(--border-subtle); border-radius: 0.875rem; padding: 1.75rem; display: flex; flex-direction: column; gap: 1.25rem;">
+          <div>
+            <label style="font-weight: 700; color: #38bdf8; font-size: 0.95rem; display: block; margin-bottom: 0.4rem;">
+              1. Tiga hal paling bermakna yang aku pelajari:
+            </label>
+            <textarea id="refleksi-3hal" placeholder="Contoh: (1) Struktur protein E tangensial Dengue vs spike panjang SARS-CoV-2; (2) Reassortment 8 segmen RNA Influenza; (3) Program Wolbachia yang berbasis sains nyata..." style="width: 100%; min-height: 90px; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.85rem; color: #fff; font-size: 0.875rem; line-height: 1.6;"></textarea>
+          </div>
+
+          <div>
+            <label style="font-weight: 700; color: #34d399; font-size: 0.95rem; display: block; margin-bottom: 0.4rem;">
+              2. Dua hal yang membuatku paling kagum / terkesan:
+            </label>
+            <textarea id="refleksi-2kagum" placeholder="Contoh: (1) Mekanisme injeksi dsDNA Fag T4 seperti jarum suntik; (2) Axonal transport retrograde virus Rabies yang mampu menghindari sistem imun..." style="width: 100%; min-height: 80px; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.85rem; color: #fff; font-size: 0.875rem; line-height: 1.6;"></textarea>
+          </div>
+
+          <div>
+            <label style="font-weight: 700; color: #fbbf24; font-size: 0.95rem; display: block; margin-bottom: 0.4rem;">
+              3. Satu pertanyaan mendalam yang masih membuatku sangat penasaran:
+            </label>
+            <input type="text" id="refleksi-1tanya" placeholder="Contoh: Mengapa virus bisa tetap lestari di alam liar tanpa pernah punah jika selalu membunuh inangnya?" style="width: 100%; background: #090e17; border: 1px solid var(--border-accent); border-radius: 0.5rem; padding: 0.75rem 0.85rem; color: #fff; font-size: 0.875rem;">
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.75rem;">
+            <button class="btn btn-primary" onclick="simpanRefleksiAkhir()">
+              Simpan & Cetak Lembar Refleksi Portofolio
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('landing')">
+              Kembali ke Beranda Utama
+            </button>
+          </div>
+
+          <div id="refleksi-final-success" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; border-radius: 0.5rem; padding: 1rem; color: #6ee7b7; font-size: 0.875rem; line-height: 1.6;">
+            <strong>🎉 Refleksi Kamu Berhasil Disimpan!</strong> Terima kasih telah menjadi pembelajar biologi yang Mindful, Meaningful, dan Joyful bersama platform Virusnesia. Tetaplah kritis, ilmiah, dan berempati terhadap kesehatan masyarakat Indonesia!
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JAVASCRIPT LOGIC & COMPREHENSIVE 10 VIRUSES DATASET -->
+  <script src="js/virus-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
