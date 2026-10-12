@@ -16,7 +16,8 @@
   const defaultState = {
     currentPage: "home",
     completed: [],
-    answers: { engage: "", explore: "", reflection: "" }
+    answers: { engage: "", explore: "", reflection: "" },
+    misconceptionAnswers: {}
   };
 
   let state = loadState();
@@ -37,12 +38,22 @@
         ...defaultState,
         ...saved,
         completed: Array.isArray(saved.completed) ? saved.completed.filter(id => completionPhases.includes(id)) : [],
-        answers: { ...defaultState.answers, ...(saved.answers && typeof saved.answers === "object" ? saved.answers : {}) }
+        answers: { ...defaultState.answers, ...(saved.answers && typeof saved.answers === "object" ? saved.answers : {}) },
+        misconceptionAnswers: sanitizeMisconceptions(saved.misconceptionAnswers)
       };
     } catch (error) {
       console.warn("Progres lokal tidak dapat dibaca:", error);
-      return { ...defaultState, completed: [], answers: { ...defaultState.answers } };
+      return { ...defaultState, completed: [], answers: { ...defaultState.answers }, misconceptionAnswers: {} };
     }
+  }
+
+  function sanitizeMisconceptions(value) {
+    const result = {};
+    if (!value || typeof value !== "object") return result;
+    ["q1", "q2", "q3"].forEach(key => {
+      if (value[key] === "benar" || value[key] === "salah") result[key] = value[key];
+    });
+    return result;
   }
 
   function saveState() {
@@ -106,6 +117,53 @@
     button.addEventListener("click", () => completePhase(button.dataset.complete));
   });
 
+  const engageQuestionIds = ["q1", "q2", "q3"];
+  const engageStatus = document.getElementById("engage-status");
+  const continueExploreButton = document.getElementById("continue-explore");
+
+  function updateEngageStatus() {
+    engageQuestionIds.forEach(questionId => {
+      const savedValue = state.misconceptionAnswers[questionId];
+      document.querySelectorAll('input[name="' + questionId + '"]').forEach(input => {
+        input.checked = input.value === savedValue;
+      });
+    });
+    const answeredCount = engageQuestionIds.filter(id => Boolean(state.misconceptionAnswers[id])).length;
+    const ready = answeredCount === engageQuestionIds.length;
+    continueExploreButton.disabled = !ready;
+    if (ready) {
+      engageStatus.textContent = "Terima kasih. Jawaban awalmu tersimpan—belum ada skor atau penilaian. Ingat pilihanmu dan bandingkan kembali setelah mempelajari konsep pada fase Explain.";
+      engageStatus.classList.add("is-ready");
+    } else {
+      engageStatus.textContent = "Kamu sudah menjawab " + answeredCount + " dari 3 pernyataan. Jawab semuanya untuk membuka fase berikutnya.";
+      engageStatus.classList.remove("is-ready");
+    }
+  }
+
+  engageQuestionIds.forEach(questionId => {
+    document.querySelectorAll('input[name="' + questionId + '"]').forEach(input => {
+      input.addEventListener("change", () => {
+        state.misconceptionAnswers[questionId] = input.value;
+        saveState();
+        updateEngageStatus();
+      });
+    });
+  });
+
+  continueExploreButton.addEventListener("click", () => {
+    const allAnswered = engageQuestionIds.every(id =>
+      state.misconceptionAnswers[id] === "benar" || state.misconceptionAnswers[id] === "salah"
+    );
+    if (!allAnswered) {
+      updateEngageStatus();
+      return;
+    }
+    completePhase("engage");
+    renderPage("explore");
+  });
+
+  updateEngageStatus();
+
   function bindAnswer(buttonId, fieldId, answerKey, feedbackId, successMessage) {
     const button = document.getElementById(buttonId);
     const field = document.getElementById(fieldId);
@@ -120,7 +178,6 @@
     });
   }
 
-  bindAnswer("save-engage", "engage-answer", "engage", "engage-feedback", "Dugaan awal tersimpan. Kamu bisa melanjutkan eksplorasi.");
   bindAnswer("save-explore", "explore-note", "explore", "explore-feedback", "Catatan eksplorasi tersimpan.");
   bindAnswer("save-reflection", "reflection-answer", "reflection", "reflection-feedback", "Refleksi tersimpan.");
 
