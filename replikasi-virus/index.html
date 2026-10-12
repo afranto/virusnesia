@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172033">
+  <meta name="description" content="Pembelajaran multimedia interaktif proses replikasi virus untuk Biologi Kelas X SMA.">
+  <title>Petualangan Mikroskopis — Replikasi Virus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__brand" aria-label="Petualangan Mikroskopis">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span><strong>Petualangan Mikroskopis</strong><small>Biologi Kelas X</small></span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-meta"><span id="phase-label">Beranda</span><span id="progress-label">0% selesai</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Progres belajar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+        <span id="progress-fill"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <section class="page is-active" id="page-home" data-phase="home" aria-labelledby="home-title">
+      <div class="hero-card">
+        <span class="eyebrow">MISI BIOLOGI • KELAS X SMA</span>
+        <div class="virus-art" aria-hidden="true"><span class="virus-core"></span></div>
+        <h1 id="home-title">Petualangan Mikroskopis:<br><span>Replikasi Virus</span></h1>
+        <p class="hero-copy">Masuki dunia yang tak terlihat oleh mata telanjang. Telusuri bagaimana virus memasuki sel inang dan membentuk partikel virus baru.</p>
+        <button class="button button--primary" data-go="engage">Mulai Belajar <span aria-hidden="true">→</span></button>
+        <p class="saved-note" id="saved-note" aria-live="polite">Progres belajar tersimpan otomatis di perangkat ini.</p>
+      </div>
+      <article class="card">
+        <div class="section-heading"><span class="section-icon">◎</span><div><h2>Tujuan Pembelajaran</h2><p>Setelah menyelesaikan petualangan ini, kamu diharapkan mampu:</p></div></div>
+        <ul class="objective-list">
+          <li><span>01</span><p>Menjelaskan tahapan utama replikasi virus secara berurutan.</p></li>
+          <li><span>02</span><p>Mengidentifikasi peran virus dan sel inang pada setiap tahap.</p></li>
+          <li><span>03</span><p>Menggunakan konsep replikasi virus untuk menganalisis situasi sederhana.</p></li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="section-heading"><span class="section-icon">☝</span><div><h2>Bagaimana cara belajar?</h2><p>Ikuti fase belajar secara berurutan.</p></div></div>
+        <div class="how-grid">
+          <div class="how-step"><b>1</b><strong>Jelajahi</strong><p>Amati pertanyaan dan fenomena pemantik.</p></div>
+          <div class="how-step"><b>2</b><strong>Pahami</strong><p>Eksplorasi konsep dan penjelasan.</p></div>
+          <div class="how-step"><b>3</b><strong>Buktikan</strong><p>Kerjakan evaluasi dan refleksi.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="page" id="page-engage" data-phase="engage" aria-labelledby="engage-title" hidden>
+      <div class="phase-banner phase-banner--engage"><span class="phase-tag">FASE 1 • ENGAGE</span><h1 id="engage-title">Mulai dari rasa ingin tahu</h1><p>Mengapa virus membutuhkan sel hidup untuk menghasilkan virus baru?</p></div>
+      <article class="card"><h2>Pertanyaan pemantik</h2><p>Virus tidak memiliki sistem lengkap untuk memperbanyak diri secara mandiri. Menurutmu, apa yang dilakukan virus setelah bertemu dengan sel inang yang sesuai?</p><label class="field-label" for="engage-answer">Tulis dugaan awalmu</label><textarea id="engage-answer" rows="4" placeholder="Menurut saya, virus akan..."></textarea><button class="button button--primary" id="save-engage">Simpan dugaan & lanjutkan</button><p class="inline-feedback" id="engage-feedback" aria-live="polite"></p></article>
+    </section>
+
+    <section class="page" id="page-explore" data-phase="explore" aria-labelledby="explore-title" hidden>
+      <div class="phase-banner phase-banner--explore"><span class="phase-tag">FASE 2 • EXPLORE</span><h1 id="explore-title">Amati prosesnya</h1><p>Mulai dengan mengurutkan tahapan dasar replikasi virus. Konten eksplorasi akan dikembangkan pada tahap berikutnya.</p></div>
+      <article class="card"><h2>Petunjuk eksplorasi</h2><p>Perhatikan hubungan antara virus, materi genetik, dan sel inang. Catat hal yang ingin kamu ketahui sebelum masuk ke penjelasan konsep.</p><label class="field-label" for="explore-note">Catatan eksplorasi</label><textarea id="explore-note" rows="4" placeholder="Hal yang ingin saya ketahui..."></textarea><button class="button button--primary" id="save-explore">Simpan catatan</button><p class="inline-feedback" id="explore-feedback" aria-live="polite"></p></article>
+    </section>
+
+    <section class="page" id="page-explain" data-phase="explain" aria-labelledby="explain-title" hidden>
+      <div class="phase-banner phase-banner--explain"><span class="phase-tag">FASE 3 • EXPLAIN</span><h1 id="explain-title">Bangun pemahaman</h1><p>Di fase ini kamu akan mempelajari konsep ilmiah yang menjelaskan bagaimana virus bereplikasi.</p></div>
+      <article class="card"><h2>Apa yang perlu dipahami?</h2><p>Replikasi virus adalah proses pembentukan virus baru dengan memanfaatkan struktur dan mekanisme sel inang. Rincian materi dan media interaktif akan ditambahkan secara bertahap.</p><button class="button button--primary" data-complete="explain">Tandai fase ini selesai</button></article>
+    </section>
+
+    <section class="page" id="page-elaborate" data-phase="elaborate" aria-labelledby="elaborate-title" hidden>
+      <div class="phase-banner phase-banner--elaborate"><span class="phase-tag">FASE 4 • ELABORATE</span><h1 id="elaborate-title">Terapkan konsep</h1><p>Gunakan pemahamanmu untuk menghubungkan tahapan replikasi dengan situasi nyata.</p></div>
+      <article class="card"><h2>Ruang penerapan</h2><p>Fase penerapan akan berisi studi kasus atau aktivitas multimedia untuk membantu kamu menjelaskan proses replikasi virus berdasarkan bukti.</p><button class="button button--primary" data-complete="elaborate">Tandai fase ini selesai</button></article>
+    </section>
+
+    <section class="page" id="page-evaluate" data-phase="evaluate" aria-labelledby="evaluate-title" hidden>
+      <div class="phase-banner phase-banner--evaluate"><span class="phase-tag">FASE 5 • EVALUATE</span><h1 id="evaluate-title">Uji pemahamanmu</h1><p>Evaluasi digunakan untuk memeriksa pemahaman setelah mempelajari materi.</p></div>
+      <article class="card"><h2>Siap untuk evaluasi?</h2><p>Kuis tentang urutan, ciri, dan peran tahapan replikasi akan ditambahkan pada pengembangan berikutnya.</p><button class="button button--primary" data-complete="evaluate">Tandai fase ini selesai</button></article>
+    </section>
+
+    <section class="page" id="page-reflection" data-phase="reflection" aria-labelledby="reflection-title" hidden>
+      <div class="phase-banner phase-banner--reflection"><span class="phase-tag">REFLEKSI</span><h1 id="reflection-title">Apa yang kamu pelajari?</h1><p>Refleksikan perubahan pemahamanmu selama mengikuti petualangan ini.</p></div>
+      <article class="card"><h2>Refleksi belajar</h2><label class="field-label" for="reflection-answer">Satu hal yang paling saya pahami adalah…</label><textarea id="reflection-answer" rows="4" placeholder="Tuliskan refleksimu..."></textarea><button class="button button--primary" id="save-reflection">Simpan refleksi</button><p class="inline-feedback" id="reflection-feedback" aria-live="polite"></p></article>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navigasi fase pembelajaran">
+    <button class="nav-item is-current" data-go="home" aria-current="page"><span>⌂</span><small>Beranda</small></button>
+    <button class="nav-item" data-go="engage"><span>✦</span><small>Engage</small></button>
+    <button class="nav-item" data-go="explore"><span>⌕</span><small>Explore</small></button>
+    <button class="nav-item" data-go="explain"><span>▤</span><small>Explain</small></button>
+    <button class="nav-item" data-go="elaborate"><span>↗</span><small>Elaborate</small></button>
+    <button class="nav-item" data-go="evaluate"><span>✓</span><small>Evaluate</small></button>
+    <button class="nav-item" data-go="reflection"><span>♡</span><small>Refleksi</small></button>
+  </nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
